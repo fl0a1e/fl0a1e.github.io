@@ -17,7 +17,7 @@
 
   
 
-  <title>Hello World | 鱼的星空</title>
+  <title>Git | 鱼的星空</title>
 
   
 
@@ -95,13 +95,13 @@
         <div class="type-wrap">
           
         </div>
-        <h1 class="title-wrap">Hello World</h1>
+        <h1 class="title-wrap">Git</h1>
         <h2 class="title-sub-wrap">
           <strong>庄生晓梦</strong>
           <span>发布于</span>
           
   <a href="javascript:;" class="article-date">
-    <time datetime="2020-02-21T11:46:29.000Z" itemprop="datePublished">2020-02-21</time>
+    <time datetime="2020-02-21T13:36:42.000Z" itemprop="datePublished">2020-02-21</time>
   </a>
 
         </h2>
@@ -125,13 +125,35 @@
       
 
       <div class="article-entry">
-        <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>历经千辛万苦终于搭起了属于自己的博客</p>
-<p>cheers!</p>
+        <h1 id="Git学习总结"><a href="#Git学习总结" class="headerlink" title="Git学习总结"></a><strong>Git学习总结</strong></h1><p>此文用作学习总结，以方便日后复习，也希望能帮到一些初学者，不足之处还请各位大侠指正。</p>
+<p><strong>Git是一个开源的分布式版本控制系统，能让人们方便的进行文件管理</strong></p>
+<h4 id="何为分布式"><a href="#何为分布式" class="headerlink" title="何为分布式"></a>何为分布式</h4><p>从集中式版本控制系统说起，完整的版本库集中存放在中央服务器，每次都要从中央获取最新版本，编辑完再提交至中央，存在下载资源速度慢和中央服务器一旦出现问题整个项目就会遭到巨大打击的问题，分布式版本控制系统则很好的解决了上述问题，因为每个人的电脑上都有完整的版本库，不必联网不用担心中央服务器突然失效。</p>
+<h4 id="为电脑注册“账号”"><a href="#为电脑注册“账号”" class="headerlink" title="为电脑注册“账号”"></a>为电脑注册“账号”</h4><p>想象在一个聊天群中，每个人都没昵称的场面，更不用说在一个工作的环境中没了身份的标识，所以在安装完Git后请再做一步，设置你的name和email</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"NAME"</span></span><br><span class="line">git config --global user.email <span class="string">"EMAIL"</span></span><br></pre></td></tr></table></figure>
+<p><code>--global</code>参数表示当前电脑上的所有git仓库都是用这个配置，所以去掉即可对不同仓库注册不同身份</p>
+<h4 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h4><p>选定或创建一个文件夹，命令行输入<code>git init</code>即可将此文件夹变成一个git管理的仓库</p>
+<p>成功创建后会生成一个.git的隐藏文件夹，使用<code>ls -ah</code>命令即可看见</p>
+<p> .git文件夹包含着所有git操作所需要的东西</p>
+<h4 id="三个区域"><a href="#三个区域" class="headerlink" title="三个区域"></a>三个区域</h4><p>工作区：日常放文件的地方，可视</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;file&gt;</span><br></pre></td></tr></table></figure>
+
+<p>暂存区：临时存放改动的地方</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &lt;message&gt;</span><br></pre></td></tr></table></figure>
+
+<p>本地仓库：最终存放所有版本的位置，HEAD指针指向最新的版本</p>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p><code>git add &lt;file&gt;</code>或<code>git add .</code>将工作区文件加到暂存区</p>
+<p><code>git commit -m &quot;说明&quot;</code>将暂存区文件提交到本地仓库</p>
+<p><code>git status</code> 查看状态</p>
+<p><code>git reset HEAD</code> 将暂存区的文件，可指定文件名</p>
+<p><code>git log</code> 查看历史记录，加上<code>--pretty=oneline</code>参数可略去提交人和时间信息，</p>
+<p><code>git remote add origin</code> 添加远程仓库如GitHub或Gitee</p>
+<p><code>git push origin master</code></p>
+<h4 id="拾遗"><a href="#拾遗" class="headerlink" title="拾遗"></a>拾遗</h4><p>commit id（版本号）：频繁出现的一串串由数字和abc…组成的序列</p>
 
       </div>
 
       <div class="article-footer">
-        
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">#git</a></li></ul>
       </div>
 
       <div class="article-navs">
@@ -139,19 +161,19 @@
 <nav class="card-container card-article-nav">
   <div class="card-wrap">
     
-      <div id="article-nav-newer" class="card-item">
+    
+      <div id="article-nav-older" class="card-item">
         <article>
           
-          <a class="card-link article-nav-link" href="/2020/02/21/Git/"></a>
-          <strong class="article-nav-caption">Newer</strong>
+          <a class="card-link article-nav-link" href="/2020/02/21/hello/"></a>
+          <strong class="article-nav-caption">Older</strong>
           <p class="article-nav-title">
             
-              Git
+              Hello World
             
           </p>
         </article>
       </div>
-    
     
   </div>
 </nav>
