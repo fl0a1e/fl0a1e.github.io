@@ -82,11 +82,11 @@
       <div class="post-text">
         <h1 class="title-wrap">鱼の星空</h1>
         
-          <h3 class="title-sub-wrap">
+          <h2 class="title-sub-wrap">
             
             <p id="hitokoto"></p>
             <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
-          </h3>
+          </h2>
         
       </div>
     </div>
@@ -230,7 +230,7 @@
           theme: "#b7daff",
           lrcType: 3,
           autoplay: false,
-          loop: false,
+          loop: true,
           mutex: true,
         });
       });
@@ -315,8 +315,38 @@ function initWaterfall(selector, el) {
   
 
 
+  <!-- Baidu Analytics START -->
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      if (window.location.hostname === "localhost" || window.location.hostname.startsWith("192.168")) {
+        return console.log("本地调试");
+      }
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?true";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <!-- Baidu Analytics End -->
+
   
 
+
+  <!-- Tencent Analytics START -->
+  <script>
+    (function() {
+      if (window.location.hostname === "localhost" || window.location.hostname.startsWith("192.168")) {
+        return console.log("本地调试");
+      }
+      let s = document.querySelector("script");
+      let hm = document.createElement("script");
+      hm.charset = "UTF-8";
+      hm.src = "https://tajs.qq.com/stats?sId=true";
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <!-- Tencent Analytics End -->
 
 
 
