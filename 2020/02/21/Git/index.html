@@ -93,7 +93,7 @@
       <div class="post-image" style="background-image: url(https://qiniu.miiiku.xyz/src/images/banner.jpg)"></div>
       <div class="post-text">
         <div class="type-wrap">
-          
+          <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
         </div>
         <h1 class="title-wrap">Git学习总结</h1>
         <h2 class="title-sub-wrap">
@@ -129,16 +129,16 @@
 <p><strong>Git是一个开源的分布式版本控制系统，能让人们方便的进行文件管理</strong></p>
 <h4 id="何为分布式"><a href="#何为分布式" class="headerlink" title="何为分布式"></a>何为分布式</h4><p>从集中式版本控制系统说起，完整的版本库集中存放在中央服务器，每次都要从中央获取最新版本，编辑完再提交至中央，存在下载资源速度慢和中央服务器一旦出现问题整个项目就会遭到巨大打击的问题，分布式版本控制系统则很好的解决了上述问题，因为每个人的电脑上都有完整的版本库，不必联网不用担心中央服务器突然失效。</p>
 <h4 id="为电脑注册“账号”"><a href="#为电脑注册“账号”" class="headerlink" title="为电脑注册“账号”"></a>为电脑注册“账号”</h4><p>想象在一个聊天群中，每个人都没昵称的场面，更不用说在一个工作的环境中没了身份的标识，所以在安装完Git后请再做一步，设置你的name和email</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"NAME"</span></span><br><span class="line">git config --global user.email <span class="string">"EMAIL"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">"NAME"</span><br>git config --global user.email <span class="hljs-string">"EMAIL"</span><br></code></pre></td></tr></table></figure>
 <p><code>--global</code>参数表示当前电脑上的所有git仓库都是用这个配置，所以去掉即可对不同仓库注册不同身份</p>
 <h4 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h4><p>选定或创建一个文件夹，命令行输入<code>git init</code>即可将此文件夹变成一个git管理的仓库</p>
 <p>成功创建后会生成一个.git的隐藏文件夹，使用<code>ls -ah</code>命令即可看见</p>
 <p> .git文件夹包含着所有git操作所需要的东西</p>
 <h4 id="三个区域"><a href="#三个区域" class="headerlink" title="三个区域"></a>三个区域</h4><p>工作区：日常放文件的地方，可视</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git add &lt;file&gt;<br></code></pre></td></tr></table></figure>
 
 <p>暂存区：临时存放改动的地方</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &lt;message&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git commit -m &lt;message&gt;<br></code></pre></td></tr></table></figure>
 
 <p>本地仓库：最终存放所有版本的位置，HEAD指针指向最新的版本</p>
 <h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p><code>git add &lt;file&gt;</code>或<code>git add .</code>将工作区文件加到暂存区</p>
