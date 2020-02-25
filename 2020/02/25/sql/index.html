@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  
+
+  
+
+  
+    <meta name="author" content="庄生晓梦">
+  
+
+  
+
+  
+
+  <title>sql环境搭建踩坑指南 | 鱼の星空</title>
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/default.min.css" rel="stylesheet">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <div class="root-container">
+    <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          鱼の星空
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">HOME</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">ABOUT</a></li>
+        
+          <li class="navbar-list-item"><a href="/links">LINK</a></li>
+        
+          <li class="navbar-list-item"><a href="/tags">TAGS</a></li>
+        
+          <li class="navbar-list-item"><a href="/categories">CATEGORIES</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    
+<!-- header container -->
+<header class="header-container post">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-image" style="background-image: url(https://qiniu.miiiku.xyz/src/images/banner.jpg)"></div>
+      <div class="post-text">
+        <div class="type-wrap">
+          <a class="article-category-link" href="/categories/web%E5%AE%89%E5%85%A8/">web安全</a>
+        </div>
+        <h1 class="title-wrap">sql环境搭建踩坑指南</h1>
+        <h2 class="title-sub-wrap">
+          <strong>庄生晓梦</strong>
+          <span>发布于</span>
+          
+  <a href="javascript:;" class="article-date">
+    <time datetime="2020-02-25T14:57:56.000Z" itemprop="datePublished">2020-02-25</time>
+  </a>
+
+        </h2>
+      </div>
+    </div>
+  
+
+  
+  
+
+  </header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+
+<div class="body-container">
+  <article class="content-container article-container">
+    <div class="article-content">
+      
+      
+
+      <div class="article-entry">
+        <h1 id="SQL注入环境搭建踩坑指南"><a href="#SQL注入环境搭建踩坑指南" class="headerlink" title="SQL注入环境搭建踩坑指南"></a><strong>SQL注入环境搭建踩坑指南</strong></h1><p>使用《Web安全攻防》中配套的SQL注入平台来搭建</p>
+<h3 id="一般流程"><a href="#一般流程" class="headerlink" title="一般流程"></a><strong>一般流程</strong></h3><ul>
+<li>先下载zip，解压密码找了好长时间，在这个视频里<a href="https://pan.baidu.com/s/15F1SEoHZYoWxPE8iMqkqAQ" target="_blank" rel="noopener">https://pan.baidu.com/s/15F1SEoHZYoWxPE8iMqkqAQ</a></li>
+</ul>
+<p>提取码：<code>zqbo</code></p>
+<p>我使用的是phpstudys，平台只需要开启Apache和MySQL服务即可</p>
+<ul>
+<li><p>在phpstudy的<code>WWW/127.0.0.1/</code>下新建一个sql1文件夹（不建当然也可以，后面按照对应路径来）</p>
+</li>
+<li><p>然后把解压出来的sqli-labs-master文件夹下所有文件全部添加到sql1文件夹下</p>
+</li>
+<li><p>开启MySQL服务（不开启就无法创建数据库，MySQL版本好像无影响），然后点击phpstudy的数据库，先修改root用户的密码，再创建一个库名为security的数据库</p>
+</li>
+<li><p>点击操作，导入，选择sql-lab.sql文件导入</p>
+</li>
+<li><p>打开sql-connections文件夹的db-creds.inc文件，需要修改的就两个地方</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php">$dbuser =<span class="hljs-string">'root'</span>;<br>$dbpass =<span class="hljs-string">'your pass'</span>;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在开启Apache和MySQL的情况下，访问127.0.0.1/sql1成功则出现</p>
+</li>
+</ul>
+<p><img src="../images/01.png" alt="01"></p>
+<ul>
+<li><p>点击<code>Setup/reset Database for labs</code>,如果出现</p>
+<p><img src="../images/02.jpg" alt="02"></p>
+</li>
+</ul>
+<p>则建立成功</p>
+<ul>
+<li><p>此时返回127.0.0.1/sql1，点击下图的题目就可开始体验SQL注入的乐趣</p>
+<p><img src="../images/03.png" alt="03"></p>
+</li>
+</ul>
+<h3 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a><strong>可能出现的问题</strong></h3><h5 id="点击Setup-reset-Database-for-labs时可能出现错误"><a href="#点击Setup-reset-Database-for-labs时可能出现错误" class="headerlink" title="点击Setup/reset Database for labs时可能出现错误"></a>点击<code>Setup/reset Database for labs</code>时可能出现错误</h5><p>`<strong>Fatal error</strong>: Uncaught Error: Call to undefined function mysql_connect() in D:\phpstudy_pro\WWW\127.0.0.1\sql1\sql-connections\setup-db.php:29 Stack trace: #0 {main} thrown in <strong>D:\phpstudy_pro\WWW\127.0.0.1\sql1\sql-connections\setup-db.php</strong> on line <strong>29</strong></p>
+<p>这是因为php版本过高，高版本的php修改了一些对mysql的操作</p>
+<p>解决方案：在phpstduy中将php7，修改为php5（网站- &gt;管理- &gt;php版本）</p>
+<h5 id="无法purge和create-challenges数据库"><a href="#无法purge和create-challenges数据库" class="headerlink" title="无法purge和create challenges数据库"></a>无法purge和create challenges数据库</h5><p>报错如下</p>
+<p>[*]……………….Error purging database: Access denied for user ‘user’@’localhost’ to database ‘challenges’</p>
+<p>[*]……………….Error creating database: Access denied for user ‘user’@’localhost’ to database ‘challenges’</p>
+<p>Unable to connect to the database: challengesAccess denied for user ‘user’@’localhost’ to database ‘challenges’</p>
+<p>解决方案：修改sql-connections文件夹的db-creds.inc文件   <code>$dbuser =&#39;root&#39;;</code></p>
+<h3 id="mysql添加至环境变量"><a href="#mysql添加至环境变量" class="headerlink" title="mysql添加至环境变量"></a><strong>mysql添加至环境变量</strong></h3><p>win10下</p>
+<ul>
+<li>查找phpstudy文件夹Extensions文件夹下的<code>mysql.exe</code>(版本不同，名字也不同)</li>
+</ul>
+<p><img src="../images/04.png" alt="04"></p>
+<ul>
+<li><p>复制绝对路径</p>
+</li>
+<li><p>桌面点击此电脑–属性–高级系统设置–环境变量–选中Path–编辑–新建–粘贴</p>
+<p>打开cmd在命令行输入mysql（mysql服务当然要是开启状态）</p>
+<p>不出意外会出现</p>
+<p><code>ERROR 1045 (28000): Access denied for user &#39;ODBC&#39;@&#39;localhost&#39; (using password: NO)</code></p>
+</li>
+</ul>
+<p>命令行输入<code>mysql -uroot -p</code>或<code>mysql -hlocalhost -uroot -p</code></p>
+<p>然后输入密码即可（密码也可以直接跟在-p之后，不加空格的那种）</p>
+<p><img src="../images/05.png" alt="05"></p>
+<p>上面的代码用以显示当前用户权限范围以内的数据库，可以看到security和challenges已经存在了</p>
+<hr>
+<p>玩的愉快(•‾̑⌣‾̑•)✧˖°</p>
+
+      </div>
+
+      <div class="article-footer">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag">#sql注入</a></li></ul>
+      </div>
+
+      <div class="article-navs">
+        
+<nav class="card-container card-article-nav">
+  <div class="card-wrap">
+    
+    
+      <div id="article-nav-older" class="card-item">
+        <article>
+          
+          <a class="card-link article-nav-link" href="/2020/02/21/un01/"></a>
+          <strong class="article-nav-caption">Older</strong>
+          <p class="article-nav-title">
+            
+              基础天文系列——水星
+            
+          </p>
+        </article>
+      </div>
+    
+  </div>
+</nav>
+
+      </div>
+      
+      
+
+  
+  <div class="valine-container">
+    <div id="valine_thread" class="valine-thread"></div>
+  </div>
+
+  
+  
+
+
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    <p>&copy; 2020 <a href="/" target="_blank">庄生晓梦</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank">flex-block</a></p>
+  </div>
+</footer>
+  </div>
+
+  
+  
+
+
+  <!-- aplayer 音频 start -->
+  
+<link rel="stylesheet" href="/lib/APlayer.min.css">
+
+  
+<script src="/lib/APlayer.min.js"></script>
+
+  <script type="text/javascript">
+    const aplayer = document.querySelectorAll(".aplayer");
+    aplayer && initaplayer(aplayer);
+    function initaplayer(els) {
+      let elsArr = Array.from(els);
+      elsArr.forEach(el => {
+        new APlayer({
+          container: el,
+          audio: { ...el.dataset },
+          theme: "#b7daff",
+          lrcType: 3,
+          autoplay: false,
+          loop: true,
+          mutex: true,
+        });
+      });
+    }
+  </script>
+  <!-- aplayer 音频 end -->
+  
+
+<!-- dplayer 视频 start -->
+
+<link rel="stylesheet" href="/lib/DPlayer.min.css">
+
+
+<script src="/lib/DPlayer.min.js"></script>
+
+<script type="text/javascript">
+  const dplayer = document.querySelectorAll(".dplayer");
+  dplayer && initDPlayer(dplayer);
+  function initDPlayer(els) {
+    let elsArr = Array.from(els);
+    elsArr.forEach(el => {
+      let url = el.dataset.url;
+      let cover = el.dataset.cover;
+      new DPlayer({
+        container: el,
+        video: { url: url, pic: cover },
+        theme: "#b7daff",
+        autoplay: false,
+        loop: false,
+        mutex: true,
+      });
+    });
+  }
+</script>
+<!-- dplayer 视频 end -->
+
+
+<!-- waterfall 瀑布流 start -->
+
+<script src="/lib/waterfall.min.js"></script>
+
+<script type="text/javascript">
+
+const waterfalls = document.querySelectorAll(".waterfall-container");
+
+if (waterfalls && waterfalls.length > 0) {
+  waterfalls.forEach((waterfall, index) => {
+    let cls = "waterfall-container-" + index;
+    waterfall.classList.add(cls);
+    initWaterfall(cls, waterfall);
+  });
+}
+
+function initWaterfall(selector, el) {
+  const options = {};
+  if (Object.keys(el.dataset).length > 0) {
+    for (let k in el.dataset) {
+      options[k] = el.dataset[k];
+    }
+  }
+  waterfall(`.${selector}`, options);
+}
+</script>
+<!-- waterfall 瀑布流 end -->
+
+
+  <!-- zoom start -->
+  
+<script src="/lib/zoom.min.js"></script>
+
+  <script type="text/javascript">
+    document.querySelector(".article-content") && zoom(".article-content");
+  </script>
+  <!-- zoom end -->
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+
+</body>
+</html>
