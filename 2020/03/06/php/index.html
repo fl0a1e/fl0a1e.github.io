@@ -17,7 +17,7 @@
 
   
 
-  <title>标签 | 鱼の星空</title>
+  <title>php笔记（更新中 | 鱼の星空</title>
 
   
 
@@ -73,10 +73,7 @@
 
     
 <!-- header container -->
-<header class="header-container">
-
-  
-  
+<header class="header-container post">
 
   
   
@@ -95,45 +92,119 @@
     <div class="header-content">
       <div class="post-image" style="background-image: url(https://qiniu.miiiku.xyz/src/images/banner.jpg)"></div>
       <div class="post-text">
-        <h1 class="title-wrap">标签</h1>
-        
-        <h2 class="title-sub-wrap">共有6个标签</h2>
-        
+        <div class="type-wrap">
+          <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+        </div>
+        <h1 class="title-wrap">php笔记（更新中</h1>
+        <h2 class="title-sub-wrap">
+          <strong>庄生晓梦</strong>
+          <span>发布于</span>
+          
+  <a href="javascript:;" class="article-date">
+    <time datetime="2020-03-06T06:23:16.000Z" itemprop="datePublished">2020-03-06</time>
+  </a>
+
+        </h2>
       </div>
     </div>
   
 
+  
+  
+
   </header>
 
-    <!-- 分页(其他自定义页面) -->
+    <!-- 文章 -->
 
-<!-- 自定义页面 -->
+<!-- 文章内容 -->
 
 <div class="body-container">
-  
-  
+  <article class="content-container article-container">
+    <div class="article-content">
+      
+      
 
-  
-  
+      <div class="article-entry">
+        <h1 id="php笔记（第四版）"><a href="#php笔记（第四版）" class="headerlink" title="php笔记（第四版）"></a><strong>php笔记</strong>（第四版）</h1><h3 id="php数据类型"><a href="#php数据类型" class="headerlink" title="php数据类型"></a><strong>php数据类型</strong></h3><ul>
+<li>Integer</li>
+<li>Float</li>
+<li>String</li>
+<li>Boolean</li>
+<li>Array</li>
+<li>Object</li>
+<li>NULL 没被赋值，已被重置或被赋值为NULL的都是NULL类型</li>
+<li>resource 代表外部资源（例如数据库连接）</li>
+</ul>
+<h3 id="声明和使用常量"><a href="#声明和使用常量" class="headerlink" title="声明和使用常量"></a>声明和使用常量</h3><p>声明：<code>define(&#39;PI&#39;,3.1415926)</code></p>
+<p>使用时不需要$</p>
+<h3 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h3><ul>
+<li>内置超级全局变量，脚本任意地方可用</li>
+<li>常量，全局可用</li>
+<li>全局变量，整个脚本可见，函数内部不可用</li>
+<li>函数内部的静态变量，在函数外不可见，但可在函数多次执行中保持该值</li>
+</ul>
+<h3 id="错误抑制操作符"><a href="#错误抑制操作符" class="headerlink" title="错误抑制操作符@"></a>错误抑制操作符@</h3><p>可以在任何有值或计算出值的表达式之前</p>
+<h3 id="执行操作符"><a href="#执行操作符" class="headerlink" title="执行操作符"></a>执行操作符</h3><p>一对反向单引号(``)</p>
+<p>php将反向单引号之间的命令当作服务器端的命令来执行</p>
+<h3 id="测试变量"><a href="#测试变量" class="headerlink" title="测试变量"></a>测试变量</h3><ul>
+<li><code>gettype()</code></li>
+<li><code>settype()</code></li>
+<li><code>isset()</code> 变量存在则返回<code>true</code></li>
+<li><code>unset()</code> 销毁传入的变量</li>
+<li><code>empty()</code> 当变量存在，并且是一个非空非零的值时返回 FALSE 否则返回 TRUE</li>
+</ul>
+<h3 id="拾遗"><a href="#拾遗" class="headerlink" title="拾遗"></a><strong>拾遗</strong></h3><ul>
+<li>双引号支持插值，单引号不支持</li>
+<li>php特性之一，是不需要再使用变量之前声名变量，第一次赋值时才创建变量</li>
+<li>php是一个弱类型语言</li>
+<li>可变变量<code>$$</code></li>
+<li><code>and</code>和<code>or</code>的优先级比<code>=</code>要低</li>
+</ul>
 
-  
-  
-    <article class="content-container next">
-      <div class="article-content">
-        <div class="tags-cloud">
-          <a href="/tags/git/" style="font-size: 1em; color: #f7c068">git</a> <a href="/tags/php/" style="font-size: 1em; color: #f7c068">php</a> <a href="/tags/re/" style="font-size: 1em; color: #f7c068">re</a> <a href="/tags/sql%E6%B3%A8%E5%85%A5/" style="font-size: 1em; color: #f7c068">sql注入</a> <a href="/tags/%E5%A4%A9%E6%96%87/" style="font-size: 1em; color: #f7c068">天文</a> <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 1em; color: #f7c068">日常</a>
-        </div>
       </div>
-    </article>
+
+      <div class="article-footer">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">#php</a></li></ul>
+      </div>
+
+      <div class="article-navs">
+        
+<nav class="card-container card-article-nav">
+  <div class="card-wrap">
+    
+    
+      <div id="article-nav-older" class="card-item">
+        <article>
+          
+          <a class="card-link article-nav-link" href="/2020/03/03/re/"></a>
+          <strong class="article-nav-caption">Older</strong>
+          <p class="article-nav-title">
+            
+              正则表达式
+            
+          </p>
+        </article>
+      </div>
+    
+  </div>
+</nav>
+
+      </div>
+      
+      
+
   
+  <div class="valine-container">
+    <div id="valine_thread" class="valine-thread"></div>
+  </div>
 
   
   
 
-  
-  
+
+    </div>
+  </article>
 </div>
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">
