@@ -93,7 +93,7 @@
       <div class="post-image" style="background-image: url(https://qiniu.miiiku.xyz/src/images/banner.jpg)"></div>
       <div class="post-text">
         <div class="type-wrap">
-          <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+          <a class="article-category-link" href="/categories/%E6%8A%80%E8%83%BD%E6%A0%91/">技能树</a>
         </div>
         <h1 class="title-wrap">php笔记（更新中</h1>
         <h2 class="title-sub-wrap">
@@ -153,12 +153,37 @@
 <li><code>unset()</code> 销毁传入的变量</li>
 <li><code>empty()</code> 当变量存在，并且是一个非空非零的值时返回 FALSE 否则返回 TRUE</li>
 </ul>
-<h3 id="拾遗"><a href="#拾遗" class="headerlink" title="拾遗"></a><strong>拾遗</strong></h3><ul>
+<h3 id="文件读写-php解释器是用c编写的，所以差不多"><a href="#文件读写-php解释器是用c编写的，所以差不多" class="headerlink" title="文件读写(php解释器是用c编写的，所以差不多)"></a>文件读写(php解释器是用c编写的，所以差不多)</h3><ul>
+<li><code>fopen()</code></li>
+<li><code>fwrite()</code></li>
+<li><code>file_put_contents()</code></li>
+<li><code>file_get_contents()</code></li>
+<li><code>fclose()</code></li>
+<li><code>feof()</code></li>
+<li><code>fgets()</code></li>
+<li><code>fgetss()</code></li>
+<li><code>fgetcsv()</code></li>
+<li><code>readfile()</code></li>
+<li><code>fpassthru()</code></li>
+<li><code>file()</code></li>
+<li><code>fgetc()</code> 会返回文件结束符EOF</li>
+<li><code>fread()</code></li>
+<li><code>file_exists()</code></li>
+<li><code>filesize()</code></li>
+<li><code>unlink</code> 删除一个文件</li>
+<li><code>rewind()</code></li>
+<li><code>fseek()</code></li>
+<li><code>ftell()</code></li>
+<li><code>flock()</code> 文件锁定，文件被打开且在读写操作之前，防止多个用户同时对一个文件操作，但在加锁过程中也会出现竞争加锁的情况</li>
+</ul>
+<p>说了这多，还是推荐<strong>数据库管理系统</strong>，没有数据库的php是没有灵魂的</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h3 id="字符串与正则"><a href="#字符串与正则" class="headerlink" title="字符串与正则"></a>字符串与正则</h3><h3 id="拾遗"><a href="#拾遗" class="headerlink" title="拾遗"></a><strong>拾遗</strong></h3><ul>
 <li>双引号支持插值，单引号不支持</li>
 <li>php特性之一，是不需要再使用变量之前声名变量，第一次赋值时才创建变量</li>
 <li>php是一个弱类型语言</li>
 <li>可变变量<code>$$</code></li>
 <li><code>and</code>和<code>or</code>的优先级比<code>=</code>要低</li>
+<li>文件打开方式还有一个“x”</li>
 </ul>
 
       </div>
