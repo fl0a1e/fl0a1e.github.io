@@ -177,7 +177,18 @@
 <li><code>flock()</code> 文件锁定，文件被打开且在读写操作之前，防止多个用户同时对一个文件操作，但在加锁过程中也会出现竞争加锁的情况</li>
 </ul>
 <p>说了这多，还是推荐<strong>数据库管理系统</strong>，没有数据库的php是没有灵魂的</p>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h3 id="字符串与正则"><a href="#字符串与正则" class="headerlink" title="字符串与正则"></a>字符串与正则</h3><h3 id="拾遗"><a href="#拾遗" class="headerlink" title="拾遗"></a><strong>拾遗</strong></h3><ul>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>php支持<strong>数字索引数组</strong>和<strong>关联数组</strong></p>
+<p>数组大小根据所增加的元素动态的变化</p>
+<p><code>foreach</code>语句为数组而设计</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">foreach</span> ($prices <span class="hljs-keyword">as</span> $key=&gt;$value)&#123;<br>    <span class="hljs-keyword">echo</span> $key.<span class="hljs-string">" - "</span>.$value.<span class="hljs-string">"&lt;br/&gt;"</span>;<br>&#125;<br><br><span class="hljs-keyword">while</span>($element = each($prices))&#123;<br>    <span class="hljs-keyword">echo</span> $element[<span class="hljs-string">'key'</span>];<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">" - "</span>;<br>    <span class="hljs-keyword">echo</span> $element[<span class="hljs-string">'value'</span>];<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;br/&gt;"</span>;<br>&#125;<br><br>reset($prices);  <span class="hljs-comment">//多次使用each（）函数时</span><br><span class="hljs-keyword">while</span>(<span class="hljs-keyword">list</span>($product, $price) = each($prices))&#123;<br>    <span class="hljs-keyword">echo</span> <span class="hljs-string">"$product - $price&lt;br/&gt;"</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>sort()</code> 升序排列，第二个参数可选 [<code>SORT_STRING</code>|<code>SORT_NUMBERIC</code>|<code>SORT_REGULAR</code>]</li>
+<li><code>asort()</code> 根据关联数组的值排序</li>
+<li><code>ksort()</code> 根据关联数组的key排序</li>
+<li>以上三个函数的降序函数 <code>rsort()</code>,<code>arsort()</code>,<code>krsort()</code></li>
+</ul>
+<h3 id="字符串与正则"><a href="#字符串与正则" class="headerlink" title="字符串与正则"></a>字符串与正则</h3><h3 id="拾遗"><a href="#拾遗" class="headerlink" title="拾遗"></a><strong>拾遗</strong></h3><ul>
 <li>双引号支持插值，单引号不支持</li>
 <li>php特性之一，是不需要再使用变量之前声名变量，第一次赋值时才创建变量</li>
 <li>php是一个弱类型语言</li>
