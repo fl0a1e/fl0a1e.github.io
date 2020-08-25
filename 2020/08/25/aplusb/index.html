@@ -17,7 +17,7 @@
 
   
 
-  <title>Archives | 鱼の星空</title>
+  <title>简单的a+b | 鱼の星空</title>
 
   
 
@@ -73,7 +73,16 @@
 
     
 <!-- header container -->
-<header class="header-container">
+<header class="header-container post">
+
+  
+  
+
+  
+  
+
+  
+  
 
   
   
@@ -83,19 +92,21 @@
     <div class="header-content">
       <div class="post-image" style="background-image: url(https://qiniu.miiiku.xyz/src/images/banner.jpg)"></div>
       <div class="post-text">
-        <h1 class="title-wrap">归档</h1>
-        <h2 class="title-sub-wrap">共有7篇文章</h2>
+        <div class="type-wrap">
+          
+        </div>
+        <h1 class="title-wrap">简单的a+b</h1>
+        <h2 class="title-sub-wrap">
+          <strong>庄生晓梦</strong>
+          <span>发布于</span>
+          
+  <a href="javascript:;" class="article-date">
+    <time datetime="2020-08-25T07:06:50.000Z" itemprop="datePublished">2020-08-25</time>
+  </a>
+
+        </h2>
       </div>
     </div>
-  
-
-  
-  
-
-  
-  
-
-  
   
 
   
@@ -103,45 +114,76 @@
 
   </header>
 
-    <!-- 归档 -->
+    <!-- 文章 -->
 
-<!-- post list container -->
-<div class="body-container float">
-  <div class="content-container article-list">
-    <div class="card-container card-articles">
-      <div class="card-wrap">
-        
-          
-          <div class="card-item">
-            <article>
-              
-              
-                <a class="article-link card-link" href="/2020/03/03/re/" itemprop="url"></a>
-              
-              <h2 class="article-title">正则表达式(待更新)</h2>
-              <div class="article-meta">
-                <strong>庄生晓梦</strong>
-                <span>发布于</span>
-                
-  <a href="/2020/03/03/re/" class="article-date">
-    <time datetime="2020-03-03T05:13:51.000Z" itemprop="datePublished">2020-03-03</time>
-  </a>
+<!-- 文章内容 -->
 
-              </div>
-              <div class="article-category">
-                <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-              </div>
-            </article>
-          </div>
-        
+<div class="body-container">
+  <article class="content-container article-container">
+    <div class="article-content">
+      
+      
+
+      <div class="article-entry">
+        <h1 id="简单的a-b"><a href="#简单的a-b" class="headerlink" title="简单的a+b"></a>简单的a+b</h1><p>LintCode的第一题…就学到许多</p>
+<p>递归方法的时间明显要长许多</p>
+<p><code>a^b</code>：无进位加法</p>
+<p><code>(a&amp;b)&lt;&lt;1</code>：求进位</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> aplusb = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> a+b; <br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> aplusb = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> tmp = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (b != <span class="hljs-number">0</span>) &#123;<br>        tmp = (a&amp;b)&lt;&lt;<span class="hljs-number">1</span>;<br>        a = a^b;<br>        b = tmp;<br>    &#125;<br>    <span class="hljs-keyword">return</span> a;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> aplusb = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> (b == <span class="hljs-number">0</span> ? a : aplusb(a^b,(a&amp;b)&lt;&lt;<span class="hljs-number">1</span>));<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
       </div>
-    </div>
+
+      <div class="article-footer">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3/" rel="tag">#算法相关</a></li></ul>
+      </div>
+
+      <div class="article-navs">
+        
+<nav class="card-container card-article-nav">
+  <div class="card-wrap">
+    
+    
+      <div id="article-nav-older" class="card-item">
+        <article>
+          
+          <a class="card-link article-nav-link" href="/2020/08/23/svg/"></a>
+          <strong class="article-nav-caption">Older</strong>
+          <p class="article-nav-title">
+            
+              svg笔记
+            
+          </p>
+        </article>
+      </div>
+    
   </div>
+</nav>
+
+      </div>
+      
+      
+
+  
+  <div class="valine-container">
+    <div id="valine_thread" class="valine-thread"></div>
+  </div>
+
+  
+  
+
+
+    </div>
+  </article>
 </div>
-
-<!-- page container -->
-
-
 
     <!-- footer container -->
 <footer id="footer" class="footer">
