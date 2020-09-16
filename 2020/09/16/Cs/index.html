@@ -134,11 +134,22 @@
 <p><code>qz Hello</code>和<code>wh Hello</code>就能解决冲突</p>
 <p>命名空间里是一系列class</p>
 <p><code>using 名词空间</code>,可以省略在每次使用类名时的名词空间前缀</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c#">namespace Space’sName&#123;<br>    //declaration<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c#">namespace Space’sName<br>&#123;<br>    //declaration<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>c#每一个新建工程都会自动把所用内容放到一个名字空间里，空间名就是项目名</p>
 <hr>
-<p>static修饰的函数是静态函数，不用创建对象即可访问</p>
+<p>static修饰的方法是静态函数，不用创建对象即可访问</p>
+<p>例子：</p>
+<ul>
+<li><code>Main()</code>作为程序入口函数，如果使用之前需要创建实例对象的话不符合逻辑</li>
+<li><code>System.Console.WriteLine()</code>同样可以直接使用，System提供了大量的静态函数</li>
+</ul>
+<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p><strong>输入的都是string</strong>，需要进一步处理成需要的数据类型</p>
+<p><code>Convert.ToInt32()</code></p>
+<h3 id="控制台"><a href="#控制台" class="headerlink" title="控制台"></a>控制台</h3><p><code>Console.Write()</code>：不自动换行</p>
+<p><code>Console.WriteLine()</code>：自动换行</p>
+<p><code>Console.Read()</code>：</p>
+<p><code>Console.ReadLine()</code>：</p>
 
       </div>
 
