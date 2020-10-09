@@ -104,7 +104,7 @@
 
 <p>不自定义随机数种子时，<code>new Random()</code>使用当前系统时间作为种子，当随机数生成过快时会使用同一个系统时间而导致生成的随机数相同</p>
 <p>解决办法之一：<code>Random r = new Random((int)DateTime.Now.Ticks);</code></p>
-<p>DateTime.Now.Ticks的值为自 0001 年 1 月 1 日午夜 12:00 以来所经过时间以 100 毫微秒为间隔表示时的数字（long类型），可以尽量避免重复</p>
+<p>DateTime.Now.Ticks的值为自 0001 年 1 月 1 日午夜 12:00 以来所经过时间以 100 毫微秒为间隔表示时的数字（DateTime.Ticks是long类型），可以尽量避免重复</p>
 <hr>
 <p><code>Next()</code>重载</p>
 <ul>
