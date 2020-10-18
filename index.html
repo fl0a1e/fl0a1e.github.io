@@ -125,15 +125,14 @@ DateTi ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href
 
 
 没有返回值，但不能用void修饰
-一般使用public，因为构造函数由系统调用，如果私有就无法调用
+一般使用public，因为构造函数由系统调用，如果私有就无法调用（系统调用也属于外部调用）
+有参数列表就可以重载
+析构函数在实例对象销毁是被调用，一般用于释放资源等
+不带返回值和参数，故不需要返回值类型和参数列表（无参数列表意味着析构函数不能重载）
+使用时不用加public（暂时不知道为什么）
 属性本质上对对象的包装，体现封装性
 格式：
-12345678910访问修饰符 数据类型 属性名&#123;	get &#123;        get访问器代码	&#125;	set&#123;		set访问器代码	&#125;&#125;
-
-只有get就是只读，只有set就是只写，二者都有就是可读可写
-
-自实现属性
-1234567891011121314151617/*不需要检测数据合理性的情况下*/pub ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="C#"> C#</a></div><div class="read-more"><a class="more" href="/2020/09/27/CsConstructor/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2020/09/26/CsDataType/">C#数据类型</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2020-09-26T14:49:26.000Z">2020-09-26</time></div><div class="recent-post-content">C#数据类型概述
+12345678910访问修饰符 数据类型 属性名&#123;	get &#123;        get访问器代码	&#125;	set ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="C#"> C#</a></div><div class="read-more"><a class="more" href="/2020/09/27/CsConstructor/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2020/09/26/CsDataType/">C#数据类型</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2020-09-26T14:49:26.000Z">2020-09-26</time></div><div class="recent-post-content">C#数据类型概述
 值类型：值类型直接包含数据
 引用类型：存储数据的引用，两个变量可能引用同一个对象（参考C++）
 
