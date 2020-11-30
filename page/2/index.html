@@ -97,7 +97,34 @@
   }
 }( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><meta name="generator" content="Hexo 4.2.0"></head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/fl0a1e.png"></div><!--.profile-saying
   i.fa.fa-comment
-  .saying--><div class="cxo-profile-inner"><div class="profile-name">fl0a1e</div><div class="profile-signature">这个世界能为你带来的震撼远超想象</div><div class="friends"><div>FRIENDS</div><span><a href="http://xi4oyu.top" target="_black">xi4oyu</a></span><span><a href="http://greenhateam.top" target="_black">GreenHaTeam</a></span><span><a href="http://wzyxv1n.top" target="_black">v1n</a></span><span><a href="http://gychu.top" target="_black">熠哥</a></span><span><a href="http://wr-web.github.io" target="_black">wr</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a href="/">fl0a1e's Blog</a></div><div class="intro-nav-label-box"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div></i><div class="clear"></div></section></nav><h1>fl0a1e's Blog</h1><h5>Welcome to my starry sky!</h5><div class="intro-social"><a class="fa fa-github" href="//github.com/" target="_blank" title="github"></a><a class="fa fa-weibo" href="//www.weibo.com" target="_blank" title="weibo"></a><a class="fa fa-facebook" href="//www.facebook.com" target="_blank" title="facebook"></a><a class="fa fa-twitter" href="//twitter.com" target="_blank" title="twitter"></a><a class="fa fa-rss" href="/atom.xml" target="_blank" title="rss"></a></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><section id="recent-posts"><div class="recent-post-item"><div class="post-title"><a href="/2020/09/26/C++/">C++带全</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2020-09-26T14:21:53.000Z">2020-09-26</time></div><div class="recent-post-content">1.基础格式
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">fl0a1e</div><div class="profile-signature">这个世界能为你带来的震撼远超想象</div><div class="friends"><div>FRIENDS</div><span><a href="http://xi4oyu.top" target="_black">xi4oyu</a></span><span><a href="http://greenhateam.top" target="_black">GreenHaTeam</a></span><span><a href="http://wzyxv1n.top" target="_black">v1n</a></span><span><a href="http://gychu.top" target="_black">熠哥</a></span><span><a href="http://wr-web.github.io" target="_black">wr</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a href="/">fl0a1e's Blog</a></div><div class="intro-nav-label-box"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div></i><div class="clear"></div></section></nav><h1>fl0a1e's Blog</h1><h5>Welcome to my starry sky!</h5><div class="intro-social"><a class="fa fa-github" href="//github.com/" target="_blank" title="github"></a><a class="fa fa-weibo" href="//www.weibo.com" target="_blank" title="weibo"></a><a class="fa fa-facebook" href="//www.facebook.com" target="_blank" title="facebook"></a><a class="fa fa-twitter" href="//twitter.com" target="_blank" title="twitter"></a><a class="fa fa-rss" href="/atom.xml" target="_blank" title="rss"></a></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><section id="recent-posts"><div class="recent-post-item"><div class="post-title"><a href="/2020/09/27/CsClass/">C#类</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2020-09-27T02:59:10.000Z">2020-09-27</time></div><div class="recent-post-content">C#类
+默认修饰符为internal，即只能在当前项目中访问
+
+构造函数格式：
+
+修饰符 类名();
+修饰符 类名(参数表);
+
+
+没有返回值，但不能用void修饰
+一般使用public，因为构造函数由系统调用，如果私有就无法调用（系统调用也属于外部调用）
+有参数列表就可以重载
+析构函数在实例对象销毁是被调用，一般用于释放资源等
+不带返回值和参数，故不需要返回值类型和参数列表（无参数列表意味着析构函数不能重载）
+使用时不用加public（暂时不知道为什么）
+属性本质上对对象的包装，体现封装性
+格式：
+12345678910访问修饰符 数据类型 属性名&#123;	get &#123;      ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="Csharp"> Csharp</a></div><div class="read-more"><a class="more" href="/2020/09/27/CsClass/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2020/09/26/CsDataType/">C#数据类型</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2020-09-26T14:49:26.000Z">2020-09-26</time></div><div class="recent-post-content">C#数据类型概述
+值类型：值类型直接包含数据
+引用类型：存储数据的引用，两个变量可能引用同一个对象（参考C++）
+
+值类型
+简单类型：（有符号） sbyte，short，int，long /（无符号） byte，ushort，uint，ulong / （Unicode编码）char / （IEEE浮点） float，double / （128位高精度小数）decimal / bool
+枚举类型：enum E{…}
+结构类型：struct S{…}
+
+C#中字符和字符串处理使用Unicode编码而不是Ascii码
+枚举123456789101112131415/*本质是整数，每个元素的默认基础类 ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="Csharp"> Csharp</a></div><div class="read-more"><a class="more" href="/2020/09/26/CsDataType/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2020/09/26/C++/">C++带全</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2020-09-26T14:21:53.000Z">2020-09-26</time></div><div class="recent-post-content">1.基础格式
 头文件不用加后缀，如#include&lt;iostream&gt;
 头文件的后缀.h、.hpp、.hxx
 源文件的后缀.cpp、.cxx、.cc
@@ -196,28 +223,4 @@ npm run dev
 
 
 
-123456789101112/*GET*/data() &#123;    return &#123;    	info: null    &#125 ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="前端"> 前端</a><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="JavaScript"> JavaScript</a></div><div class="read-more"><a class="more" href="/2020/08/26/Vue/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2020/08/25/aplusb/">简单的a+b</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2020-08-25T07:06:50.000Z">2020-08-25</time></div><div class="recent-post-content">简单的a+bLintCode的第一题…就学到许多
-递归方法的时间明显要长许多
-a^b：无进位加法
-(a&amp;b)&lt;&lt;1：求进位
-123const aplusb = function (a, b) &#123;    return a+b; &#125;
-
-
-
-123456789const aplusb = function (a, b) &#123;    var tmp = 0;    while (b != 0) &#123;        tmp = (a&amp;b)&lt;&lt;1;        a = a^b;        b = tmp;    &#125; ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="JavaScript"> JavaScript</a><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="算法"> 算法</a></div><div class="read-more"><a class="more" href="/2020/08/25/aplusb/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2020/08/23/svg/">svg笔记</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2020-08-23T15:15:14.000Z">2020-08-23</time></div><div class="recent-post-content">之后可能会重新总结归纳，浓缩出核心分享
-svg笔记svg是可缩放矢量图形（Scalable Vector Graphics）的简写
-svg使用 XML 格式定义图像，使用 XML 来描述二维图形和绘图程序的语言
-
-
-SVG 用来定义用于网络的基于矢量的图形
-SVG 是万维网联盟的标准
-SVG 与诸如 DOM 和 XSL 之类的 W3C 标准是一个整体
-
-
-
-SVG 可被非常多的工具读取和修改（比如记事本）
-SVG 与 JPEG 和 GIF 图像比起来，尺寸更小，且可压缩性更强。
-SVG 是可伸缩的
-SVG 图像可在任何的分辨率下被高质量地打印
-SVG 可在图像质量不下降的情况下被放大
-SVG  ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="前端"> 前端</a><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="css"> css</a></div><div class="read-more"><a class="more" href="/2020/08/23/svg/#more">ReadMore</a></div><hr></div></section><nav class="cxo-page-nav"><a class="extend prev" rel="prev" href="/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">NEXT &amp;#62;</a></nav></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo" target="_blank" rel="noopener"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>
+123456789101112/*GET*/data() &#123;    return &#123;    	info: null    &#125 ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="前端"> 前端</a><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="JavaScript"> JavaScript</a></div><div class="read-more"><a class="more" href="/2020/08/26/Vue/#more">ReadMore</a></div><hr></div></section><nav class="cxo-page-nav"><a class="extend prev" rel="prev" href="/">&amp;#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">NEXT &amp;#62;</a></nav></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo" target="_blank" rel="noopener"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>
