@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="庄生晓梦"><meta name="renderer" content="webkit"><meta name="copyright" content="庄生晓梦"><meta name="keywords" content="鱼の星空"><meta name="description" content=""><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>shyo密码管理器开发 0x01 · fl0a1e's Blog</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/favicon.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
+    }
+    return function(){
+      return ret;
+    };
+  })();
+
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
+    }
+
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
+    }
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
+
+
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><meta name="generator" content="Hexo 4.2.0"></head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/fl0a1e.png"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">fl0a1e</div><div class="profile-signature">这个世界能为你带来的震撼远超想象</div><div class="friends"><div>FRIENDS</div><span><a href="http://xi4oyu.top" target="_black">xi4oyu</a></span><span><a href="http://greenhateam.top" target="_black">GreenHaTeam</a></span><span><a href="http://wzyxv1n.top" target="_black">v1n</a></span><span><a href="http://gychu.top" target="_black">熠哥</a></span><span><a href="http://wr-web.github.io" target="_black">wr</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a href="/">fl0a1e's Blog</a></div><div class="intro-nav-label-box"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div></i><div class="clear"></div></section></nav><h1 class="post-title">shyo密码管理器开发 0x01</h1><div class="post-intros"><div class="post-intro-meta"><span class="post-intro-time"><i class="post-intro-calendar fa fa-calendar"></i><span>2020-12-06</span></span><span class="post-intro-tags"><a class="intro-tag fa fa-tag" href="javascript:void(0)" date-tags="Java"> Java</a></span></div></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><article class="article-entry" id="post"><h1 id="shyo密码管理器开发日志-0x01"><a href="#shyo密码管理器开发日志-0x01" class="headerlink" title="shyo密码管理器开发日志 0x01"></a>shyo密码管理器开发日志 0x01</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前言：9月开学到现在12月，想了各种密码管理器的实现方法，有思考纯前端实现密码存单独文件或存在本地数据库中，也有关联服务器的，期间也写了不少代码，但都没有一个很大的进展，在和老师的谈论中逐步理清大体框架，主要是实现一个密码存在服务端用以多端同步，用protobuf传输数据，并在前端加以处理的框架（一直觉得密码一旦在网络中传输就会有各种安全问题，这些都是需要解决的问题，由于我们的目标是基于OTP的密码管理器，所以这说不定是一个解决方案）。</p>
+<h2 id="开发准备"><a href="#开发准备" class="headerlink" title="开发准备"></a>开发准备</h2><ul>
+<li><p>由于是多人开发，我就整了一个服务器（阿里云学生认证）（终于有自己的服务器辣，后面准备把博客迁移到服务器上），到时候开放一个端口供前端开发使用</p>
+</li>
+<li><p>准备使用之前有尝试过的TomCat和MySQL搭建JAVA后端</p>
+</li>
+<li><p>数据传输使用的是protobuf</p>
+</li>
+</ul>
+<h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><p>当场在阿里云买了（虽然腾讯云好像更便宜，但在杭州没有站点）轻量应用服务器(和ECS有点区别但影响不大)，用的是系统镜像ubuntu18.04，然后ssh就能连了，起飞，爽到</p>
+<h2 id="安装JDK-TomCat"><a href="#安装JDK-TomCat" class="headerlink" title="安装JDK+TomCat"></a>安装JDK+TomCat</h2><p><code>sudo apt install openjdk-11-jdk-headless</code>安装JDK（TomCat需要JDK）</p>
+<hr>
+<p>安装TomCat</p>
+<p><a href="https://tomcat.apache.org/下载源码" target="_blank" rel="noopener">https://tomcat.apache.org/下载源码</a></p>
+<p><img src="C:%5CUsers%5C13240%5CDesktop%5CQQ%E5%9B%BE%E7%89%8720201206230311.png" alt="QQ图片20201206230311"></p>
+<p>Window打开一个新的终端，用<code>scp 被上传文件路径 上传服务器IP:/home/存在的路径</code>上传</p>
+<p>解压<code>tar -zxvf apache-tomcat-10.0.0-M10.tar.gz</code></p>
+<p>改权限<code>sudo chmod 755 -R apache-tomcat-10.0.0-M10</code></p>
+<p>移动<code>sudo mv apache-tomcat-10.0.0-M10 /usr/local</code></p>
+<p>修改文件<code>cd /usr/local/apache-tomcat-10.0.0-M10/bin</code></p>
+<p><code>sudo vi startup.sh</code></p>
+<p>按<code>i</code>开始编辑</p>
+<p>文件最后加入（可能还要加一个有关jdk的，但我这不用加我也不知道为啥）</p>
+<p><img src="C:%5CUsers%5C13240%5CDesktop%5CQQ%E5%9B%BE%E7%89%8720201206231144.png" alt="QQ图片20201206231144"></p>
+<p><code>Esc</code>退出编辑模式，<code>:wq</code>保存并退出</p>
+<p>然后<code>sudo ./startup.sh</code>，访问<code>公网IP:8080</code>即可</p>
+<p><img src="C:%5CUsers%5C13240%5CDesktop%5CQQ%E5%9B%BE%E7%89%8720201206232442.png" alt="QQ图片20201206232442"></p>
+<p>关闭服务是<code>sudo ./shutdown.sh</code></p>
+<h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><p><code>sudo apt-get update</code></p>
+<hr>
+<p>安装<code>sudo apt-get install mysql-server</code></p>
+<p><code>sudo mysql -uroot -p</code>初始root密码为空，直接Enter</p>
+<hr>
+<p><strong>设置root密码</strong></p>
+<p><code>use mysql;</code>   </p>
+<p><code>update user set authentication_string=PASSWORD(&quot;自定义密码&quot;) where user=&#39;root&#39;;</code> </p>
+<p><code>update user set plugin=&quot;mysql_native_password&quot;;</code>   </p>
+<p><code>flush privileges;</code>   </p>
+<p><code>quit;</code></p>
+<hr>
+<p><strong>添加用户</strong></p>
+<p><code>CREATE USER &#39;username&#39;@&#39;host&#39; IDENTIFIED BY &#39;password&#39;;</code></p>
+<p>username：用户名<br>host：指定该用户在哪个主机上可以登陆，本地用户用localhost，从任意远程主机登陆，可以使用通配符%<br>password：用户密码</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>管理器服务端涉及到MySQL和Tomcat，配置怎么说呢个人感觉还是很方便的（以前用其他系统装简直人间疾苦），这次至少一路绿灯过来的。</p>
+<p>接下来就是尝试链接数据库，实现前后端的数据传输服务（也许会用到servlet），然后protobuf也要进一步研究了</p>
+<p>然后有自己的服务器了撒花！</p>
+</article><!-- lincense--><div class="license-wrapper"><p> <span>Author:  </span><a href="http://yoursite.com">庄生晓梦</a></p><p> <span>Link:  </span><a href="http://yoursite.com/2020/12/06/shyo-1/">http://yoursite.com/2020/12/06/shyo-1/</a></p><p> <span>Copyright:  </span><span>All articles in this blog are licensed under <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/3.0" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.</span></p></div><div class="post-paginator"><a class="nextSlogan" href="/2020/11/30/rsa/" title="rsa加解密（python实现）"><span>NextPost ></span><br><span class="nextTitle">rsa加解密（python实现）</span></a><div class="clear"></div></div><div id="comment"></div></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo" target="_blank" rel="noopener"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><div class="toc-wrapper" style="top: 70vh;"><div class="toc-catalog"><i class="fa fa-list"> </i><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#shyo密码管理器开发日志-0x01"><span class="toc-number">1.</span> <span class="toc-text">shyo密码管理器开发日志 0x01</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发准备"><span class="toc-number">1.2.</span> <span class="toc-text">开发准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器"><span class="toc-number">1.3.</span> <span class="toc-text">服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装JDK-TomCat"><span class="toc-number">1.4.</span> <span class="toc-text">安装JDK+TomCat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装MySQL"><span class="toc-number">1.5.</span> <span class="toc-text">安装MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">1.6.</span> <span class="toc-text">小结</span></a></li></ol></li></ol></div><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>
