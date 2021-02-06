@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="庄生晓梦"><meta name="renderer" content="webkit"><meta name="copyright" content="庄生晓梦"><meta name="keywords" content="鱼の星空"><meta name="description" content=""><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>核心 C# · fl0a1e's Blog</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/favicon.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
+    }
+    return function(){
+      return ret;
+    };
+  })();
+
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
+    }
+
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
+    }
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
+
+
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><meta name="generator" content="Hexo 4.2.0"></head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/fl0a1e.png"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">fl0a1e</div><div class="profile-signature">这个世界能为你带来的震撼远超想象</div><div class="friends"><div>FRIENDS</div><span><a href="http://xi4oyu.top" target="_black">xi4oyu</a></span><span><a href="http://greenhateam.top" target="_black">GreenHaTeam</a></span><span><a href="http://wzyxv1n.top" target="_black">v1n</a></span><span><a href="http://gychu.top" target="_black">熠哥</a></span><span><a href="http://wr-web.github.io" target="_black">wr</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a href="/">fl0a1e's Blog</a></div><div class="intro-nav-label-box"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div></i><div class="clear"></div></section></nav><h1 class="post-title">核心 C#</h1><div class="post-intros"><div class="post-intro-meta"><span class="post-intro-time"><i class="post-intro-calendar fa fa-calendar"></i><span>2021-02-06</span></span><span class="post-intro-tags"><a class="intro-tag fa fa-tag" href="javascript:void(0)" date-tags="C#"> C#</a></span></div></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><article class="article-entry" id="post"><p><strong>笔记都是基于 C# 7.0 和 .NET Core 2.0，会有一部分新特性</strong></p>
+<p><strong>只记录相对于重要的地方，具体请翻书</strong></p>
+<h1 id="核心-C"><a href="#核心-C" class="headerlink" title="核心 C#"></a>核心 C#</h1><p>[TOC]</p>
+<h2 id="1-从-Hello-World-开始"><a href="#1-从-Hello-World-开始" class="headerlink" title="1. 从 Hello World 开始"></a>1. 从 Hello World 开始</h2><ul>
+<li>C# 区分大小写</li>
+<li>using static，打开类的静态成员</li>
+<li>System 名称空间，包含了最常用的<code>.NET</code>类</li>
+</ul>
+<h2 id="2-变量"><a href="#2-变量" class="headerlink" title="2. 变量"></a>2. 变量</h2><ul>
+<li>安全性的一种体现，C# 编译器将未初始化看作一种<strong>错误</strong>，类和结构的变量会有默认值，方法的局部变量必须显式初始化</li>
+<li>类型推断：<code>var</code>关键字</li>
+<li><code>Type ageType = age.GetType();</code></li>
+</ul>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p><code>const int a = 10;</code></p>
+<ul>
+<li>声明时初始化，指定值后不能改写，声明之外赋值编译器报错</li>
+<li>不能用变量中的值初始化，除非是只读字段</li>
+<li>隐式静态（默认静态），但不允许显式声明 static</li>
+</ul>
+<h2 id="3-预定义数据类型"><a href="#3-预定义数据类型" class="headerlink" title="3. 预定义数据类型"></a>3. 预定义数据类型</h2><h3 id="值类型（堆栈）"><a href="#值类型（堆栈）" class="headerlink" title="值类型（堆栈）"></a>值类型（堆栈）</h3><ul>
+<li>变量赋给变量本质是值复制，堆栈中有两个变量</li>
+<li>自己定义的类型通常是引用类型，但结构是值类型</li>
+</ul>
+<p><strong><code>sbyte, short, int, long, byte, ushort, uint, ulong</code></strong>（前 4 个有符号整数，后 4 个无符号整数，8bit，16bit，32bit，64bit）</p>
+<ul>
+<li>数字分隔符（C# 7.0 开始支持），提高可读性，编译器自动忽略，例：<code>long ll = 0x123_4567_89ab_cdef;</code></li>
+<li>二进制赋值给整数（C# 7.0 开始支持），0b 前缀，例：<code>uint binary1 = 0b1111_1110_1101_0011_1010_1001_0001_0101;</code></li>
+</ul>
+<p><strong><code>float, double, decimal</code></strong>（32bit，64bit，128bit）</p>
+<ul>
+<li>decimal 不是基本数据类型，有性能损失</li>
+</ul>
+<p><strong><code>true, false</code></strong></p>
+<ul>
+<li>不能和非 0 和 0 隐式转换</li>
+</ul>
+<p><strong><code>char</code></strong></p>
+<ul>
+<li>16bit 的Unicode字符</li>
+</ul>
+<h3 id="引用类型（托管堆）"><a href="#引用类型（托管堆）" class="headerlink" title="引用类型（托管堆）"></a>引用类型（托管堆）</h3><ul>
+<li><p>通过多个别名访问堆中的数据，变量赋值指向同一块堆内存</p>
+</li>
+<li><p>CLR 定期删除不能访问的对象，释放其占用的内存</p>
+</li>
+</ul>
+<p><strong>String 和 Object</strong></p>
+<ul>
+<li>给 string 变量赋值时会创建一个新的 string，运算符重载的结果</li>
+<li><code>@</code>前缀，不转义字符串中的任何字符</li>
+<li><code>$</code>前缀，字符串插值</li>
+</ul>
+<h3 id="NET类型"><a href="#NET类型" class="headerlink" title=".NET类型"></a>.NET类型</h3><p><strong>数据类型的关键字，如<code>int</code>等会从编译器映射到<code>.NET</code>数据类型</strong></p>
+<p><strong>也就是说，这些预定义的数据类型本质上是某个类的实例，从而可以直接通过这种特殊的实例来调用某些方法，如类型转换</strong></p>
+<p>例：声明一个<code>int</code>时，实际上创建了一个<code>.NET struct:System.Int32</code>类的实例，从而可以通过类似<code>i.toString();</code>的方法实现转换</p>
+<p><strong>存储时仍存为基本类型，只是在概念上用 C# 结构表示，没有性能损失</strong></p>
+<h2 id="4-程序控制"><a href="#4-程序控制" class="headerlink" title="4. 程序控制"></a>4. 程序控制</h2><h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><h4 id="if、switch"><a href="#if、switch" class="headerlink" title="if、switch"></a>if、switch</h4><ul>
+<li>switch 语句，编译器强制将没有 break 的 case 子句（非空子句）标记为错误，也就是不允许<code>fall through</code></li>
+<li>case 子句为空时才可跳下一条语句</li>
+</ul>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><h4 id="for、while、do…while"><a href="#for、while、do…while" class="headerlink" title="for、while、do…while"></a>for、while、do…while</h4><p>没啥好说的</p>
+<h4 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h4><ul>
+<li>不能改变被遍历对象的值</li>
+</ul>
+<h3 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h3><h4 id="goto"><a href="#goto" class="headerlink" title="goto"></a>goto</h4><p>等要用的时候再来补吧…</p>
+<h4 id="break、continue、return"><a href="#break、continue、return" class="headerlink" title="break、continue、return"></a>break、continue、return</h4><p>没啥好说的</p>
+<h2 id="5-名称空间"><a href="#5-名称空间" class="headerlink" title="5. 名称空间"></a>5. 名称空间</h2><p>一种逻辑组合</p>
+<ul>
+<li>给类一个较长的名称，完全限定名称</li>
+<li>嵌套名称空间以创建层次结构</li>
+</ul>
+<p><code>using</code>，避免输过长的类名</p>
+<h2 id="6-Main"><a href="#6-Main" class="headerlink" title="6. Main"></a>6. Main</h2><p><code>static &lt;void | int&gt; Main(string[] args)</code></p>
+<h2 id="7-注释"><a href="#7-注释" class="headerlink" title="7. 注释"></a>7. 注释</h2><p>传统的 C 风格注释</p>
+<h3 id="XML-文档"><a href="#XML-文档" class="headerlink" title="XML 文档"></a>XML 文档</h3><p>待续…</p>
+<h2 id="8-预处理指令"><a href="#8-预处理指令" class="headerlink" title="8. 预处理指令"></a>8. 预处理指令</h2><p>待续…</p>
+<h2 id="9-编程准则"><a href="#9-编程准则" class="headerlink" title="9. 编程准则"></a>9. 编程准则</h2><ul>
+<li>最好不用下划线开头</li>
+<li><code>@ + 关键字</code>，是有效的标识符</li>
+<li>名称空间、类、基类成员，大驼峰</li>
+<li>属性封装（属性大驼峰，get、set 小驼峰）、参数名、私有成员字段名，小驼峰</li>
+<li>…</li>
+</ul>
+</article><!-- lincense--><div class="license-wrapper"><p> <span>Author:  </span><a href="http://yoursite.com">庄生晓梦</a></p><p> <span>Link:  </span><a href="http://yoursite.com/2021/02/06/CSharp01/">http://yoursite.com/2021/02/06/CSharp01/</a></p><p> <span>Copyright:  </span><span>All articles in this blog are licensed under <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/3.0" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.</span></p></div><div class="post-paginator"><a class="nextSlogan" href="/2020/12/13/DL/" title="基于离散对数的公钥加密"><span>NextPost ></span><br><span class="nextTitle">基于离散对数的公钥加密</span></a><div class="clear"></div></div><div id="comment"></div></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo" target="_blank" rel="noopener"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><div class="toc-wrapper" style="top: 70vh;"><div class="toc-catalog"><i class="fa fa-list"> </i><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#核心-C"><span class="toc-number">1.</span> <span class="toc-text">核心 C#</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-从-Hello-World-开始"><span class="toc-number">1.1.</span> <span class="toc-text">1. 从 Hello World 开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-变量"><span class="toc-number">1.2.</span> <span class="toc-text">2. 变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常量"><span class="toc-number">1.2.1.</span> <span class="toc-text">常量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-预定义数据类型"><span class="toc-number">1.3.</span> <span class="toc-text">3. 预定义数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#值类型（堆栈）"><span class="toc-number">1.3.1.</span> <span class="toc-text">值类型（堆栈）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用类型（托管堆）"><span class="toc-number">1.3.2.</span> <span class="toc-text">引用类型（托管堆）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NET类型"><span class="toc-number">1.3.3.</span> <span class="toc-text">.NET类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-程序控制"><span class="toc-number">1.4.</span> <span class="toc-text">4. 程序控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#条件"><span class="toc-number">1.4.1.</span> <span class="toc-text">条件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if、switch"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">if、switch</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#循环"><span class="toc-number">1.4.2.</span> <span class="toc-text">循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#for、while、do…while"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">for、while、do…while</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#foreach"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">foreach</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跳转"><span class="toc-number">1.4.3.</span> <span class="toc-text">跳转</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#goto"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">goto</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#break、continue、return"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">break、continue、return</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-名称空间"><span class="toc-number">1.5.</span> <span class="toc-text">5. 名称空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Main"><span class="toc-number">1.6.</span> <span class="toc-text">6. Main</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-注释"><span class="toc-number">1.7.</span> <span class="toc-text">7. 注释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XML-文档"><span class="toc-number">1.7.1.</span> <span class="toc-text">XML 文档</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-预处理指令"><span class="toc-number">1.8.</span> <span class="toc-text">8. 预处理指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-编程准则"><span class="toc-number">1.9.</span> <span class="toc-text">9. 编程准则</span></a></li></ol></li></ol></div><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>
