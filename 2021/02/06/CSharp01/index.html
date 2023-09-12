@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>核心 C# | Amber</title><meta name="author" content="庄生晓梦"><meta name="copyright" content="庄生晓梦"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="笔记都是基于 C# 7.0 和 .NET Core 2.0，会有一部分新特性 只记录相对于重要的地方，具体请翻书 核心 C#[TOC] 1. 从 Hello World 开始 C# 区分大小写 using static，打开类的静态成员 System 名称空间，包含了最常用的.NET类  2. 变量 安全性的一种体现，C# 编译器将未初始化看作一种错误，类和结构的变量会有默认值，方法的局部变量必须">
+<meta property="og:type" content="article">
+<meta property="og:title" content="核心 C#">
+<meta property="og:url" content="http://example.com/2021/02/06/CSharp01/index.html">
+<meta property="og:site_name" content="Amber">
+<meta property="og:description" content="笔记都是基于 C# 7.0 和 .NET Core 2.0，会有一部分新特性 只记录相对于重要的地方，具体请翻书 核心 C#[TOC] 1. 从 Hello World 开始 C# 区分大小写 using static，打开类的静态成员 System 名称空间，包含了最常用的.NET类  2. 变量 安全性的一种体现，C# 编译器将未初始化看作一种错误，类和结构的变量会有默认值，方法的局部变量必须">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2021-02-06T13:43:52.000Z">
+<meta property="article:modified_time" content="2023-09-12T10:23:38.084Z">
+<meta property="article:author" content="庄生晓梦">
+<meta property="article:tag" content="C#">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/02/06/CSharp01/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '核心 C#',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-12 18:23:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Amber"><span class="site-name">Amber</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">核心 C#</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-02-06T13:43:52.000Z" title="Created 2021-02-06 21:43:52">2021-02-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-12T10:23:38.084Z" title="Updated 2023-09-12 18:23:38">2023-09-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="核心 C#"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>笔记都是基于 C# 7.0 和 .NET Core 2.0，会有一部分新特性</strong></p>
+<p><strong>只记录相对于重要的地方，具体请翻书</strong></p>
+<h1 id="核心-C"><a href="#核心-C" class="headerlink" title="核心 C#"></a>核心 C#</h1><p>[TOC]</p>
+<h2 id="1-从-Hello-World-开始"><a href="#1-从-Hello-World-开始" class="headerlink" title="1. 从 Hello World 开始"></a>1. 从 Hello World 开始</h2><ul>
+<li>C# 区分大小写</li>
+<li>using static，打开类的静态成员</li>
+<li>System 名称空间，包含了最常用的<code>.NET</code>类</li>
+</ul>
+<h2 id="2-变量"><a href="#2-变量" class="headerlink" title="2. 变量"></a>2. 变量</h2><ul>
+<li>安全性的一种体现，C# 编译器将未初始化看作一种<strong>错误</strong>，类和结构的变量会有默认值，方法的局部变量必须显式初始化</li>
+<li>类型推断：<code>var</code>关键字</li>
+<li><code>Type ageType = age.GetType();</code></li>
+</ul>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p><code>const int a = 10;</code></p>
+<ul>
+<li>声明时初始化，指定值后不能改写，声明之外赋值编译器报错</li>
+<li>不能用变量中的值初始化，除非是只读字段</li>
+<li>隐式静态（默认静态），但不允许显式声明 static</li>
+</ul>
+<h2 id="3-预定义数据类型"><a href="#3-预定义数据类型" class="headerlink" title="3. 预定义数据类型"></a>3. 预定义数据类型</h2><h3 id="值类型（堆栈）"><a href="#值类型（堆栈）" class="headerlink" title="值类型（堆栈）"></a>值类型（堆栈）</h3><ul>
+<li>变量赋给变量本质是值复制，堆栈中有两个变量</li>
+<li>自己定义的类型通常是引用类型，但结构是值类型</li>
+</ul>
+<p>**<code>sbyte, short, int, long, byte, ushort, uint, ulong</code>**（前 4 个有符号整数，后 4 个无符号整数，8bit，16bit，32bit，64bit）</p>
+<ul>
+<li>数字分隔符（C# 7.0 开始支持），提高可读性，编译器自动忽略，例：<code>long ll = 0x123_4567_89ab_cdef;</code></li>
+<li>二进制赋值给整数（C# 7.0 开始支持），0b 前缀，例：<code>uint binary1 = 0b1111_1110_1101_0011_1010_1001_0001_0101;</code></li>
+</ul>
+<p>**<code>float, double, decimal</code>**（32bit，64bit，128bit）</p>
+<ul>
+<li>decimal 不是基本数据类型，有性能损失</li>
+</ul>
+<p><strong><code>true, false</code></strong></p>
+<ul>
+<li>不能和非 0 和 0 隐式转换</li>
+</ul>
+<p><strong><code>char</code></strong></p>
+<ul>
+<li>16bit 的Unicode字符</li>
+</ul>
+<h3 id="引用类型（托管堆）"><a href="#引用类型（托管堆）" class="headerlink" title="引用类型（托管堆）"></a>引用类型（托管堆）</h3><ul>
+<li><p>通过多个别名访问堆中的数据，变量赋值指向同一块堆内存</p>
+</li>
+<li><p>CLR 定期删除不能访问的对象，释放其占用的内存</p>
+</li>
+</ul>
+<p><strong>String 和 Object</strong></p>
+<ul>
+<li>给 string 变量赋值时会创建一个新的 string，运算符重载的结果</li>
+<li><code>@</code>前缀，不转义字符串中的任何字符</li>
+<li><code>$</code>前缀，字符串插值</li>
+</ul>
+<h3 id="NET类型"><a href="#NET类型" class="headerlink" title=".NET类型"></a>.NET类型</h3><p><strong>数据类型的关键字，如<code>int</code>等会从编译器映射到<code>.NET</code>数据类型</strong></p>
+<p><strong>也就是说，这些预定义的数据类型本质上是某个类的实例，从而可以直接通过这种特殊的实例来调用某些方法，如类型转换</strong></p>
+<p>例：声明一个<code>int</code>时，实际上创建了一个<code>.NET struct:System.Int32</code>类的实例，从而可以通过类似<code>i.toString();</code>的方法实现转换</p>
+<p><strong>存储时仍存为基本类型，只是在概念上用 C# 结构表示，没有性能损失</strong></p>
+<h2 id="4-程序控制"><a href="#4-程序控制" class="headerlink" title="4. 程序控制"></a>4. 程序控制</h2><h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><h4 id="if、switch"><a href="#if、switch" class="headerlink" title="if、switch"></a>if、switch</h4><ul>
+<li>switch 语句，编译器强制将没有 break 的 case 子句（非空子句）标记为错误，也就是不允许<code>fall through</code></li>
+<li>case 子句为空时才可跳下一条语句</li>
+</ul>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><h4 id="for、while、do…while"><a href="#for、while、do…while" class="headerlink" title="for、while、do…while"></a>for、while、do…while</h4><p>没啥好说的</p>
+<h4 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h4><ul>
+<li>不能改变被遍历对象的值</li>
+</ul>
+<h3 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h3><h4 id="goto"><a href="#goto" class="headerlink" title="goto"></a>goto</h4><p>等要用的时候再来补吧…</p>
+<h4 id="break、continue、return"><a href="#break、continue、return" class="headerlink" title="break、continue、return"></a>break、continue、return</h4><p>没啥好说的</p>
+<h2 id="5-名称空间"><a href="#5-名称空间" class="headerlink" title="5. 名称空间"></a>5. 名称空间</h2><p>一种逻辑组合</p>
+<ul>
+<li>给类一个较长的名称，完全限定名称</li>
+<li>嵌套名称空间以创建层次结构</li>
+</ul>
+<p><code>using</code>，避免输过长的类名</p>
+<h2 id="6-Main"><a href="#6-Main" class="headerlink" title="6. Main"></a>6. Main</h2><p><code>static &lt;void | int&gt; Main(string[] args)</code></p>
+<h2 id="7-注释"><a href="#7-注释" class="headerlink" title="7. 注释"></a>7. 注释</h2><p>传统的 C 风格注释</p>
+<h3 id="XML-文档"><a href="#XML-文档" class="headerlink" title="XML 文档"></a>XML 文档</h3><p>待续…</p>
+<h2 id="8-预处理指令"><a href="#8-预处理指令" class="headerlink" title="8. 预处理指令"></a>8. 预处理指令</h2><p>待续…</p>
+<h2 id="9-编程准则"><a href="#9-编程准则" class="headerlink" title="9. 编程准则"></a>9. 编程准则</h2><ul>
+<li>最好不用下划线开头</li>
+<li><code>@ + 关键字</code>，是有效的标识符</li>
+<li>名称空间、类、基类成员，大驼峰</li>
+<li>属性封装（属性大驼峰，get、set 小驼峰）、参数名、私有成员字段名，小驼峰</li>
+<li>…</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">庄生晓梦</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2021/02/06/CSharp01/">http://example.com/2021/02/06/CSharp01/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C#</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/03/21/opengl/" title="glad、glfw配置"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">glad、glfw配置</div></div></a></div><div class="next-post pull-right"><a href="/2020/12/13/DL/" title="基于离散对数的公钥加密"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">基于离散对数的公钥加密</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">庄生晓梦</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83-C"><span class="toc-number">1.</span> <span class="toc-text">核心 C#</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%8E-Hello-World-%E5%BC%80%E5%A7%8B"><span class="toc-number">1.1.</span> <span class="toc-text">1. 从 Hello World 开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8F%98%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">2. 变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">1.2.1.</span> <span class="toc-text">常量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%A2%84%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.</span> <span class="toc-text">3. 预定义数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%80%BC%E7%B1%BB%E5%9E%8B%EF%BC%88%E5%A0%86%E6%A0%88%EF%BC%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">值类型（堆栈）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%EF%BC%88%E6%89%98%E7%AE%A1%E5%A0%86%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">引用类型（托管堆）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NET%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">.NET类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">1.4.</span> <span class="toc-text">4. 程序控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.4.1.</span> <span class="toc-text">条件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if%E3%80%81switch"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">if、switch</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.4.2.</span> <span class="toc-text">循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#for%E3%80%81while%E3%80%81do%E2%80%A6while"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">for、while、do…while</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#foreach"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">foreach</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC"><span class="toc-number">1.4.3.</span> <span class="toc-text">跳转</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#goto"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">goto</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#break%E3%80%81continue%E3%80%81return"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">break、continue、return</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4"><span class="toc-number">1.5.</span> <span class="toc-text">5. 名称空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Main"><span class="toc-number">1.6.</span> <span class="toc-text">6. Main</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%B3%A8%E9%87%8A"><span class="toc-number">1.7.</span> <span class="toc-text">7. 注释</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XML-%E6%96%87%E6%A1%A3"><span class="toc-number">1.7.1.</span> <span class="toc-text">XML 文档</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4"><span class="toc-number">1.8.</span> <span class="toc-text">8. 预处理指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E7%BC%96%E7%A8%8B%E5%87%86%E5%88%99"><span class="toc-number">1.9.</span> <span class="toc-text">9. 编程准则</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/11/SGI%20STL%E5%86%85%E5%AD%98%E9%85%8D%E7%BD%AE%E5%99%A8%E5%88%86%E6%9E%90/" title="SGI STL内存配置器分析"><img src="/./iimmgg/sgialloc.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SGI STL内存配置器分析"/></a><div class="content"><a class="title" href="/2021/12/11/SGI%20STL%E5%86%85%E5%AD%98%E9%85%8D%E7%BD%AE%E5%99%A8%E5%88%86%E6%9E%90/" title="SGI STL内存配置器分析">SGI STL内存配置器分析</a><time datetime="2021-12-11T12:04:00.000Z" title="Created 2021-12-11 20:04:00">2021-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/25/Inside_C++_Obj_Model/" title="Inside The C++ Object Model简单记录"><img src="/./iimmgg/20211125-120723.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Inside The C++ Object Model简单记录"/></a><div class="content"><a class="title" href="/2021/11/25/Inside_C++_Obj_Model/" title="Inside The C++ Object Model简单记录">Inside The C++ Object Model简单记录</a><time datetime="2021-11-25T04:05:00.000Z" title="Created 2021-11-25 12:05:00">2021-11-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/10/28/speedtree/" title="SpeedTree导入UE后花叶丢失问题解决">SpeedTree导入UE后花叶丢失问题解决</a><time datetime="2021-10-28T08:21:19.000Z" title="Created 2021-10-28 16:21:19">2021-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/14/C++%E9%AB%98%E7%BA%A7%E5%AE%8F%E6%93%8D%E4%BD%9C/" title="C++高级宏操作"><img src="/./iimmgg/111.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++高级宏操作"/></a><div class="content"><a class="title" href="/2021/10/14/C++%E9%AB%98%E7%BA%A7%E5%AE%8F%E6%93%8D%E4%BD%9C/" title="C++高级宏操作">C++高级宏操作</a><time datetime="2021-10-14T14:30:00.000Z" title="Created 2021-10-14 22:30:00">2021-10-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/08/23/Gamma%E6%A0%A1%E6%AD%A3%E8%AF%A6%E8%A7%A3/" title="Gamma校正详解"><img src="/./iimmgg/gamma_correction_gamma_curves.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gamma校正详解"/></a><div class="content"><a class="title" href="/2021/08/23/Gamma%E6%A0%A1%E6%AD%A3%E8%AF%A6%E8%A7%A3/" title="Gamma校正详解">Gamma校正详解</a><time datetime="2021-08-23T09:16:00.000Z" title="Created 2021-08-23 17:16:00">2021-08-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 庄生晓梦</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
