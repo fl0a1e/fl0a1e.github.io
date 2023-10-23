@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-10-09T07:29:55.757Z</updated>
+  <updated>2023-10-10T13:38:47.339Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker</title>
+    <link href="http://example.com/2023/10/10/docker/"/>
+    <id>http://example.com/2023/10/10/docker/</id>
+    <published>2023-10-10T09:32:54.000Z</published>
+    <updated>2023-10-10T13:38:47.339Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><a href="https://docs.docker.com/get-started/">Overview of the get started guide | Docker Docs</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Docker&quot;&gt;&lt;a href=&quot;#Docker&quot; class=&quot;headerlink&quot; title=&quot;Docker&quot;&gt;&lt;/a&gt;Docker&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://docs.docker.com/get-started/&quot;&gt;Overvie</summary>
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://example.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="docker" scheme="http://example.com/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>MNIST-about convolution</title>
@@ -504,30 +528,6 @@
     <category term="密码学" scheme="http://example.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
     <category term="Java" scheme="http://example.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>rsa加解密（python实现）</title>
-    <link href="http://example.com/2020/11/30/rsa/"/>
-    <id>http://example.com/2020/11/30/rsa/</id>
-    <published>2020-11-30T05:01:34.000Z</published>
-    <updated>2023-09-13T06:33:03.277Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random                                     <span class="comment"># import random to use randint </span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util <span class="keyword">import</span> number                    <span class="comment"># import Crypto.Util.number to use getPrime</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Exgcd</span>(<span class="params">r0, r1</span>):<span class="comment"># 扩展欧几里得算法</span></span><br><span class="line">    s0, s1 = <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">    t0, t1 = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    q, r = r0 // r1, r0 % r1</span><br><span class="line">    <span class="keyword">while</span> (r):</span><br><span class="line">        s, t = s0 - q * s1, t0 - q * t1  </span><br><span class="line">        s0, s1, t0, t1 = s1, s, t1, t</span><br><span class="line">        r0, r1 = r1, r</span><br><span class="line">        q, r = r0 // r1, r0 % r1</span><br><span class="line">    <span class="keyword">return</span> s1, t1, r1 </span><br><span class="line">                              </span><br><span class="line">count = <span class="number">1</span>                                   <span class="comment">#  count = number of divisions</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gcd</span>(<span class="params">A, B</span>):                         <span class="comment">#  Euclidean Algorithm, compute gcd(A, B) </span></span><br><span class="line">    <span class="keyword">if</span> A % B == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> B</span><br><span class="line">    <span class="keyword">global</span> count</span><br><span class="line">    count += <span class="number">1</span></span><br><span class="line">    r = A % B</span><br><span class="line">    <span class="keyword">return</span> gcd(B, r)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">GenKey</span>(<span class="params">bitlen</span>):                               <span class="comment"># 生成密钥对</span></span><br><span class="line">    p = number.getPrime(bitlen)                   <span class="comment"># generate prime p</span></span><br><span class="line">    q = number.getPrime(bitlen)                   <span class="comment"># generate prime q</span></span><br><span class="line">    n = p * q                                     <span class="comment"># n = p * q</span></span><br><span class="line">    phi_n = (p-<span class="number">1</span>) * (q-<span class="number">1</span>)                         <span class="comment"># phi_n = (p-1) * (q-1)</span></span><br><span class="line">    e = random.randint(<span class="number">0</span>, phi_n - <span class="number">1</span>)              <span class="comment"># randomly choose e</span></span><br><span class="line">    <span class="keyword">while</span> (gcd(e, phi_n) != <span class="number">1</span>):                   <span class="comment"># if gcd(e, phi_n) != 1    </span></span><br><span class="line">        e = random.randint(<span class="number">0</span>, phi_n - <span class="number">1</span>)          <span class="comment"># choose e again </span></span><br><span class="line">    [d, k, r] = Exgcd(e, phi_n)                   <span class="comment"># use Exgcd(e, phi_n) to compute d</span></span><br><span class="line">    d = d % phi_n                                 <span class="comment"># d = d % phi_n</span></span><br><span class="line">    <span class="keyword">return</span> n, e, d</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fastPowMod</span>(<span class="params">b,n,m</span>):<span class="comment"># 快速模逆</span></span><br><span class="line">    b = b % m</span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> (n):</span><br><span class="line">        <span class="keyword">if</span> n &amp; <span class="number">1</span>:                                 </span><br><span class="line">            a = (a * b) % m                                     </span><br><span class="line">        n&gt;&gt;=<span class="number">1</span>                                      </span><br><span class="line">        b = (b * b) % m</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Enc</span>(<span class="params">m, e, n</span>):</span><br><span class="line">    <span class="keyword">return</span> fastPowMod(m, e, n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Dec</span>(<span class="params">c, d, n</span>):</span><br><span class="line">    <span class="keyword">return</span> fastPowMod(c, d, n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">str_to_int</span>(<span class="params">s</span>):</span><br><span class="line">        b = <span class="built_in">str</span>.encode(s)                    <span class="comment"># str to bytes</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">int</span>.from_bytes(b, <span class="string">&#x27;big&#x27;</span>)      <span class="comment"># bytes to int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">int_to_str</span>(<span class="params">i, str_len</span>):              <span class="comment"># str_len is the length of str converted</span></span><br><span class="line">    b = i.to_bytes(str_len, <span class="string">&#x27;big&#x27;</span>)       <span class="comment"># convert int to bytes </span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">bytes</span>.decode(b)               <span class="comment"># convert bytes to str </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:                        <span class="comment"># main function</span></span><br><span class="line">    [n, e, d] = GenKey(<span class="number">512</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nn = %d\ne = %d\nd = %d\n&quot;</span> %(n,e,d))  <span class="comment"># print n, e, d</span></span><br><span class="line">    m = <span class="built_in">input</span>(<span class="string">&quot;Input m(digits): &quot;</span>)                <span class="comment"># input the message m(数字形式)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n    m = %s\n&quot;</span> %m)                    <span class="comment"># print m </span></span><br><span class="line">    c = Enc(<span class="built_in">int</span>(m),e,n)                           <span class="comment"># encrypt m </span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;c = %d\n&quot;</span> %c)                          <span class="comment"># print the ciphertext c</span></span><br><span class="line">    m_dec = Dec(c,d,n)                            <span class="comment"># decrypt c</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;m_dec = %d\n&quot;</span> %m_dec)                  <span class="comment"># print the decrypted message m_dec</span></span><br><span class="line">    <span class="built_in">print</span>( <span class="built_in">int</span>(m) == m_dec )</span><br><span class="line"></span><br><span class="line">    m = <span class="built_in">input</span>(<span class="string">&quot;Input m(string): &quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n    m = %s\n&quot;</span> %m)</span><br><span class="line">    m_len = <span class="built_in">len</span>(m)</span><br><span class="line">    c = Enc(str_to_int(m),e,n)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;c = %s\n&quot;</span> %c)</span><br><span class="line">    m_dec = Dec(c,d,n)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;m_dec = %s\n&quot;</span> %int_to_str(m_dec,m_len))</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span clas</summary>
-      
-    
-    
-    
-    <category term="密码学" scheme="http://example.com/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-    
-    <category term="密码学" scheme="http://example.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
   </entry>
   
