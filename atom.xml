@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-10-10T13:38:47.339Z</updated>
+  <updated>2023-10-24T04:44:51.761Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>diary</title>
+    <link href="http://example.com/2023/10/24/diary/"/>
+    <id>http://example.com/2023/10/24/diary/</id>
+    <published>2023-10-24T03:55:05.000Z</published>
+    <updated>2023-10-24T04:44:51.761Z</updated>
+    
+    <content type="html"><![CDATA[<p>个人来说，写博客占用学习时间大概是伪命题，因为不写博客可能真的没怎么学习ORZ:lantern:</p><p>简单写一个学习和日常的记录</p><p>没更新就说明又摸大鱼去了</p><hr><h1 id="2023-10-24"><a href="#2023-10-24" class="headerlink" title="2023&#x2F;10&#x2F;24"></a>2023&#x2F;10&#x2F;24</h1><p>这几周摆了很久，复盘了一下自己学过的内容，菜狗了，准备找点东西研究一下</p><p>准备学的一些东西</p><ul><li>接触常用机器学习算法</li><li>docker + k8s</li><li>加强 Linux 的使用</li><li>设计模式</li><li>有时间研究一下 Godot 源码</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;个人来说，写博客占用学习时间大概是伪命题，因为不写博客可能真的没怎么学习ORZ:lantern:&lt;/p&gt;
+&lt;p&gt;简单写一个学习和日常的记录&lt;/p&gt;
+&lt;p&gt;没更新就说明又摸大鱼去了&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;2023-10-24&quot;&gt;&lt;a href=&quot;#2023-10-</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>docker</title>
@@ -498,30 +522,6 @@
     <category term="Csharp" scheme="http://example.com/tags/Csharp/"/>
     
     <category term="Windows" scheme="http://example.com/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>公钥加密数学基础-欧几里得算法</title>
-    <link href="http://example.com/2020/11/02/EEA/"/>
-    <id>http://example.com/2020/11/02/EEA/</id>
-    <published>2020-11-02T09:05:06.000Z</published>
-    <updated>2023-10-23T10:15:23.519Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="公钥加密数学基础-欧几里得算法"><a href="#公钥加密数学基础-欧几里得算法" class="headerlink" title="公钥加密数学基础 - 欧几里得算法"></a>公钥加密数学基础 - 欧几里得算法</h1><h2 id="标准算法"><a href="#标准算法" class="headerlink" title="标准算法"></a>标准算法</h2><p>一般用来算两个整数的公因数</p><p>即使在大数求公因数时也极其高效</p><ul><li>另一个耳熟能详的名字辗转相除法</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#欧几里得算法</span></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Euclidean</span>(<span class="params">A,B</span>):</span><br><span class="line">    <span class="keyword">if</span> A % B == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> B</span><br><span class="line">    <span class="keyword">global</span> count</span><br><span class="line">    count += <span class="number">1</span></span><br><span class="line">    r = A % B</span><br><span class="line">    <span class="keyword">return</span> Euclidean(B, r)</span><br></pre></td></tr></table></figure><h2 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h2><p>用来算模逆元</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#扩展欧几里得算法</span></span><br><span class="line"><span class="keyword">global</span> ls</span><br><span class="line"><span class="keyword">global</span> lt</span><br><span class="line">ls = [<span class="number">1</span>,<span class="number">0</span>] </span><br><span class="line">lt = [<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">s = t = -<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">EEA</span>(<span class="params">A,B</span>):</span><br><span class="line">    <span class="keyword">if</span> A % B == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    r = A % B</span><br><span class="line">    q = A // B</span><br><span class="line">    <span class="keyword">global</span> s</span><br><span class="line">    s = ls[<span class="number">0</span>] - q*ls[<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">global</span> t</span><br><span class="line">    t = lt[<span class="number">0</span>] - q*lt[<span class="number">1</span>]</span><br><span class="line">    ls[<span class="number">0</span>],ls[<span class="number">1</span>] = ls[<span class="number">1</span>],s</span><br><span class="line">    lt[<span class="number">0</span>],lt[<span class="number">1</span>] = lt[<span class="number">1</span>],t</span><br><span class="line">    <span class="keyword">return</span> EEA(B,r)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;公钥加密数学基础-欧几里得算法&quot;&gt;&lt;a href=&quot;#公钥加密数学基础-欧几里得算法&quot; class=&quot;headerlink&quot; title=&quot;公钥加密数学基础 - 欧几里得算法&quot;&gt;&lt;/a&gt;公钥加密数学基础 - 欧几里得算法&lt;/h1&gt;&lt;h2 id=&quot;标准算法&quot;&gt;&lt;a </summary>
-      
-    
-    
-    
-    <category term="密码学" scheme="http://example.com/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-    
-    <category term="密码学" scheme="http://example.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
     
   </entry>
   
