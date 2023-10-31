@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-10-25T15:23:14.807Z</updated>
+  <updated>2023-10-31T04:25:45.437Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WSL2+miniconda+Jupyter notebook</title>
+    <link href="http://example.com/2023/10/31/conda-env/"/>
+    <id>http://example.com/2023/10/31/conda-env/</id>
+    <published>2023-10-31T03:05:00.000Z</published>
+    <updated>2023-10-31T04:25:45.437Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="WSL2-miniconda-Jupyter-notebook"><a href="#WSL2-miniconda-Jupyter-notebook" class="headerlink" title="WSL2+miniconda+Jupyter notebook"></a>WSL2+miniconda+Jupyter notebook</h1><p>win11下构建的开发环境，顺便熟悉一下Linux下的开发</p><p>cuda、cuDNN可以直接在win下处理，会直接集成到WSL2，可用<code>nvidia-smi</code>查看相关信息</p><h2 id="WSL2安装"><a href="#WSL2安装" class="headerlink" title="WSL2安装"></a>WSL2安装</h2><hr><p><a href="https://learn.microsoft.com/zh-cn/windows/wsl/install">安装 WSL | Microsoft Learn</a></p><h2 id="minicond安装"><a href="#minicond安装" class="headerlink" title="minicond安装"></a>minicond安装</h2><hr><p><a href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda — miniconda 文档</a></p><p>conda包含了包管理和环境管理，很方便</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 免不了 conda 换源</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls <span class="built_in">yes</span></span><br></pre></td></tr></table></figure><h2 id="Jupyter"><a href="#Jupyter" class="headerlink" title="Jupyter"></a>Jupyter</h2><hr><p><code>conda create -n gpu-py3.10 python=3.10</code> 创建新环境</p><p><code>conda env list</code> 查看环境列表</p><p><code>conda activate gpu-py3.10</code> 激活环境</p><p><code>conda install jupyter notebook</code> 下载jupyter</p><p><code>jupyter notebook</code> 启动jupyter，win下可直接用浏览器访问其界面</p><h2 id="一些包的安装"><a href="#一些包的安装" class="headerlink" title="一些包的安装"></a>一些包的安装</h2><hr><p><a href="https://pytorch.org/">PyTorch</a>（注意cuda还是cpu版，很多时候用不了cuda可能是pytorch包弄错了）</p><p><a href="https://github.com/scikit-learn/scikit-learn">scikit-learn</a>:<code>conda install -c conda-forge scikit-learn</code></p><p>都用包管理器来处理即可，装的时候在哪个环境下别弄错，<code>pip</code>或者<code>conda</code>都行</p><h2 id="wsl2走代理"><a href="#wsl2走代理" class="headerlink" title="wsl2走代理"></a>wsl2走代理</h2><hr><p>clash最简单的一个方式</p><p>Service Mode + TUN Mode</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;WSL2-miniconda-Jupyter-notebook&quot;&gt;&lt;a href=&quot;#WSL2-miniconda-Jupyter-notebook&quot; class=&quot;headerlink&quot; title=&quot;WSL2+miniconda+Jupyter noteboo</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="ML" scheme="http://example.com/tags/ML/"/>
+    
+    <category term="Linux" scheme="http://example.com/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux拾遗</title>
@@ -46,18 +72,18 @@
     <link href="http://example.com/2023/10/24/diary/"/>
     <id>http://example.com/2023/10/24/diary/</id>
     <published>2023-10-24T03:55:05.000Z</published>
-    <updated>2023-10-25T08:07:20.918Z</updated>
+    <updated>2023-10-31T04:29:15.661Z</updated>
     
-    <content type="html"><![CDATA[<p>个人来说，写博客占用学习时间大概是伪命题，因为不写博客可能真的没怎么学习ORZ:lantern:</p><p>简单写一个学习和日常的记录</p><p>没更新就说明又摸大鱼去了</p><hr><h1 id="2023-10-24"><a href="#2023-10-24" class="headerlink" title="2023&#x2F;10&#x2F;24"></a>2023&#x2F;10&#x2F;24</h1><p>这几周摆了很久，复盘了一下自己学过的内容，菜狗了，准备恶补一下</p><p>准备学的一些东西</p><ul><li>接触常用机器学习算法</li><li>docker + k8s</li><li>加强 Linux 的使用</li><li>设计模式</li><li>有时间研究一下 Godot 源码</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>个人来说，写博客占用学习时间大概是伪命题，因为不写博客可能真的没怎么学习ORZ</p><p>简单写一个学习和日常的记录</p><p>没更新就说明又摸大鱼去了</p><hr><h1 id="2023-10-24"><a href="#2023-10-24" class="headerlink" title="2023&#x2F;10&#x2F;24"></a>2023&#x2F;10&#x2F;24</h1><p>这几周摆了很久，复盘了一下自己学过的内容，菜狗了，准备恶补一下</p><p>准备学的一些东西</p><ul><li>接触常用机器学习算法</li><li>docker + k8s</li><li>加强 Linux 的使用</li><li>设计模式</li><li>有时间研究一下 Godot 源码</li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;个人来说，写博客占用学习时间大概是伪命题，因为不写博客可能真的没怎么学习ORZ:lantern:&lt;/p&gt;
+    <summary type="html">&lt;p&gt;个人来说，写博客占用学习时间大概是伪命题，因为不写博客可能真的没怎么学习ORZ&lt;/p&gt;
 &lt;p&gt;简单写一个学习和日常的记录&lt;/p&gt;
 &lt;p&gt;没更新就说明又摸大鱼去了&lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id=&quot;2023-10-24&quot;&gt;&lt;a href=&quot;#2023-10-</summary>
+&lt;h1 id=&quot;2023-10-24&quot;&gt;&lt;a href=&quot;#2023-10-24&quot; class</summary>
       
     
     
@@ -489,30 +515,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;基于离散对数的公钥加密&quot;&gt;&lt;a href=&quot;#基于离散对数的公钥加密&quot; class=&quot;headerlink&quot; title=&quot;基于离散对数的公钥加密&quot;&gt;&lt;/a&gt;基于离散对数的公钥加密&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;tab</summary>
-      
-    
-    
-    
-    <category term="密码学" scheme="http://example.com/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-    
-    <category term="密码学" scheme="http://example.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>rsa加解密（python实现）</title>
-    <link href="http://example.com/2020/11/30/rsa/"/>
-    <id>http://example.com/2020/11/30/rsa/</id>
-    <published>2020-11-30T05:01:34.000Z</published>
-    <updated>2023-09-13T06:33:03.277Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random                                     <span class="comment"># import random to use randint </span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util <span class="keyword">import</span> number                    <span class="comment"># import Crypto.Util.number to use getPrime</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Exgcd</span>(<span class="params">r0, r1</span>):<span class="comment"># 扩展欧几里得算法</span></span><br><span class="line">    s0, s1 = <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">    t0, t1 = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    q, r = r0 // r1, r0 % r1</span><br><span class="line">    <span class="keyword">while</span> (r):</span><br><span class="line">        s, t = s0 - q * s1, t0 - q * t1  </span><br><span class="line">        s0, s1, t0, t1 = s1, s, t1, t</span><br><span class="line">        r0, r1 = r1, r</span><br><span class="line">        q, r = r0 // r1, r0 % r1</span><br><span class="line">    <span class="keyword">return</span> s1, t1, r1 </span><br><span class="line">                              </span><br><span class="line">count = <span class="number">1</span>                                   <span class="comment">#  count = number of divisions</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gcd</span>(<span class="params">A, B</span>):                         <span class="comment">#  Euclidean Algorithm, compute gcd(A, B) </span></span><br><span class="line">    <span class="keyword">if</span> A % B == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> B</span><br><span class="line">    <span class="keyword">global</span> count</span><br><span class="line">    count += <span class="number">1</span></span><br><span class="line">    r = A % B</span><br><span class="line">    <span class="keyword">return</span> gcd(B, r)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">GenKey</span>(<span class="params">bitlen</span>):                               <span class="comment"># 生成密钥对</span></span><br><span class="line">    p = number.getPrime(bitlen)                   <span class="comment"># generate prime p</span></span><br><span class="line">    q = number.getPrime(bitlen)                   <span class="comment"># generate prime q</span></span><br><span class="line">    n = p * q                                     <span class="comment"># n = p * q</span></span><br><span class="line">    phi_n = (p-<span class="number">1</span>) * (q-<span class="number">1</span>)                         <span class="comment"># phi_n = (p-1) * (q-1)</span></span><br><span class="line">    e = random.randint(<span class="number">0</span>, phi_n - <span class="number">1</span>)              <span class="comment"># randomly choose e</span></span><br><span class="line">    <span class="keyword">while</span> (gcd(e, phi_n) != <span class="number">1</span>):                   <span class="comment"># if gcd(e, phi_n) != 1    </span></span><br><span class="line">        e = random.randint(<span class="number">0</span>, phi_n - <span class="number">1</span>)          <span class="comment"># choose e again </span></span><br><span class="line">    [d, k, r] = Exgcd(e, phi_n)                   <span class="comment"># use Exgcd(e, phi_n) to compute d</span></span><br><span class="line">    d = d % phi_n                                 <span class="comment"># d = d % phi_n</span></span><br><span class="line">    <span class="keyword">return</span> n, e, d</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fastPowMod</span>(<span class="params">b,n,m</span>):<span class="comment"># 快速模逆</span></span><br><span class="line">    b = b % m</span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> (n):</span><br><span class="line">        <span class="keyword">if</span> n &amp; <span class="number">1</span>:                                 </span><br><span class="line">            a = (a * b) % m                                     </span><br><span class="line">        n&gt;&gt;=<span class="number">1</span>                                      </span><br><span class="line">        b = (b * b) % m</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Enc</span>(<span class="params">m, e, n</span>):</span><br><span class="line">    <span class="keyword">return</span> fastPowMod(m, e, n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">Dec</span>(<span class="params">c, d, n</span>):</span><br><span class="line">    <span class="keyword">return</span> fastPowMod(c, d, n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">str_to_int</span>(<span class="params">s</span>):</span><br><span class="line">        b = <span class="built_in">str</span>.encode(s)                    <span class="comment"># str to bytes</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">int</span>.from_bytes(b, <span class="string">&#x27;big&#x27;</span>)      <span class="comment"># bytes to int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">int_to_str</span>(<span class="params">i, str_len</span>):              <span class="comment"># str_len is the length of str converted</span></span><br><span class="line">    b = i.to_bytes(str_len, <span class="string">&#x27;big&#x27;</span>)       <span class="comment"># convert int to bytes </span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">bytes</span>.decode(b)               <span class="comment"># convert bytes to str </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:                        <span class="comment"># main function</span></span><br><span class="line">    [n, e, d] = GenKey(<span class="number">512</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nn = %d\ne = %d\nd = %d\n&quot;</span> %(n,e,d))  <span class="comment"># print n, e, d</span></span><br><span class="line">    m = <span class="built_in">input</span>(<span class="string">&quot;Input m(digits): &quot;</span>)                <span class="comment"># input the message m(数字形式)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n    m = %s\n&quot;</span> %m)                    <span class="comment"># print m </span></span><br><span class="line">    c = Enc(<span class="built_in">int</span>(m),e,n)                           <span class="comment"># encrypt m </span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;c = %d\n&quot;</span> %c)                          <span class="comment"># print the ciphertext c</span></span><br><span class="line">    m_dec = Dec(c,d,n)                            <span class="comment"># decrypt c</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;m_dec = %d\n&quot;</span> %m_dec)                  <span class="comment"># print the decrypted message m_dec</span></span><br><span class="line">    <span class="built_in">print</span>( <span class="built_in">int</span>(m) == m_dec )</span><br><span class="line"></span><br><span class="line">    m = <span class="built_in">input</span>(<span class="string">&quot;Input m(string): &quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n    m = %s\n&quot;</span> %m)</span><br><span class="line">    m_len = <span class="built_in">len</span>(m)</span><br><span class="line">    c = Enc(str_to_int(m),e,n)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;c = %s\n&quot;</span> %c)</span><br><span class="line">    m_dec = Dec(c,d,n)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;m_dec = %s\n&quot;</span> %int_to_str(m_dec,m_len))</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span clas</summary>
       
     
     
