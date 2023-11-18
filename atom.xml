@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-11-10T15:09:39.523Z</updated>
+  <updated>2023-11-18T14:46:51.419Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>games104笔记-更新ing</title>
+    <link href="http://example.com/2023/11/18/games104/"/>
+    <id>http://example.com/2023/11/18/games104/</id>
+    <published>2023-11-18T14:35:39.000Z</published>
+    <updated>2023-11-18T14:46:51.419Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简化的架构"><a href="#简化的架构" class="headerlink" title="简化的架构"></a>简化的架构</h3><hr><ul><li>Tool Layer：面向用户，DCC和引擎交互</li><li>Function Layer：tick，渲染+逻辑，etc…</li><li>Resource Layer：资源格式转换为资产（更高效的内部数据），GUID资产识别，资产生命周期管理（核心）</li><li>Core Layer：数学库，更高效的数据结构、容器，内存管理</li><li>Platform Layer：RHI（封装不同的图形API，向上提供统一接口）</li></ul><p>Function 和 Core 可能有很多交汇</p><h3 id="game-world"><a href="#game-world" class="headerlink" title="game world"></a>game world</h3><hr><p>各种光源、人物角色、像机乃至空气墙、触发器都可以表示成对象</p><p>各种过于复杂的关系导致继承系统很难表示，引入组件components，可以看一下ECS模式</p><p>component-based Tick，相同组件同时tick，更加高效</p><p>事件系统，消息机制类似进程信箱通信，需要可扩展消息以支持物体间各种交互事件</p><p>场景管理，八叉树、BVH（bounding box）等等</p><p>pretick &amp; posttick，多线程下统一时序</p><h3 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h3><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;简化的架构&quot;&gt;&lt;a href=&quot;#简化的架构&quot; class=&quot;headerlink&quot; title=&quot;简化的架构&quot;&gt;&lt;/a&gt;简化的架构&lt;/h3&gt;&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;Tool Layer：面向用户，DCC和引擎交互&lt;/li&gt;
+&lt;li&gt;Function Laye</summary>
+      
+    
+    
+    
+    <category term="游戏引擎" scheme="http://example.com/categories/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/"/>
+    
+    
+    <category term="游戏引擎" scheme="http://example.com/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/"/>
+    
+  </entry>
   
   <entry>
     <title>docker</title>
@@ -126,9 +153,9 @@
     <link href="http://example.com/2023/10/24/diary/"/>
     <id>http://example.com/2023/10/24/diary/</id>
     <published>2023-10-24T03:55:05.000Z</published>
-    <updated>2023-11-10T15:33:27.473Z</updated>
+    <updated>2023-11-17T16:08:06.653Z</updated>
     
-    <content type="html"><![CDATA[<p>个人来说，写博客占用学习时间大概是伪命题，因为不写博客可能真的没怎么学习ORZ</p><p>简单写一个学习和日常的记录</p><p>没更新就说明又摸大鱼去了，基本<strong>每周或每两周记录一次</strong>，当周报！</p><h1 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023&#x2F;11&#x2F;11"></a>2023&#x2F;11&#x2F;11</h1><hr><p>这周基本补完<code>git</code>、<code>cmake</code>、<code>docker</code>基础，下一步就是提高coding能力</p><p>同时ai也开始看看，继续巩固研究CNN</p><p>期中！算法导论期中考要寄啦，看不懂一点</p><h1 id="2023-11-4"><a href="#2023-11-4" class="headerlink" title="2023&#x2F;11&#x2F;4"></a>2023&#x2F;11&#x2F;4</h1><hr><p>期中阶段，比较忙，赶课堂内容</p><p>wsl用着不错，linux 熟悉了很多</p><p>发现<strong>代码能力太弱</strong>（算法写不出来，开发也两眼抓瞎），准备通过阅读代码和做点项目补上来，还是准备往C++方向走</p><p>英语也不行，练听力，听CSGO比赛的纯净流！</p><h1 id="2023-10-24"><a href="#2023-10-24" class="headerlink" title="2023&#x2F;10&#x2F;24"></a>2023&#x2F;10&#x2F;24</h1><hr><p>这几周摆了很久，复盘了一下自己学过的内容，菜狗了，准备恶补一下</p><p>准备学的一些东西</p><ul><li>接触常用机器学习算法</li><li>docker + k8s</li><li>加强 Linux 的使用</li><li>设计模式</li><li>有时间研究一下 Godot 源码</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>个人来说，写博客占用学习时间大概是伪命题，因为不写博客可能真的没怎么学习ORZ</p><p>简单写一个学习和日常的记录</p><p>没更新就说明又摸大鱼去了，基本<strong>每周或每两周记录一次</strong>，当周报！</p><h1 id="2023-11-19"><a href="#2023-11-19" class="headerlink" title="2023&#x2F;11&#x2F;19"></a>2023&#x2F;11&#x2F;19</h1><hr><p>期中基本结束，但任务还是比较多，一点点来完成</p><p>这周接触了一下ResNet、GAN、Nerf，基本理解其由来和基本实现原理</p><ul><li>准备看一下 games104，会同步更新到博客，学完可能会去看开源引擎的源码，分析其设计和尝试修改，教程的样例引擎Piccolo终于编译过了，最逆天的一集拿MinGW摁编译MSVC的东西</li><li>C&#x2F;C++ 准备多看看代码，了解新特性、编码的 trick 等</li><li>进一步了解 AI 相关，未来有点想研究强化学习和Nerf</li></ul><h1 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023&#x2F;11&#x2F;11"></a>2023&#x2F;11&#x2F;11</h1><hr><p>这周基本补完<code>git</code>、<code>cmake</code>、<code>docker</code>基础，下一步就是提高coding能力</p><p>同时ai也开始看看，继续巩固研究CNN</p><p>期中！算法导论期中考要寄啦，看不懂一点</p><h1 id="2023-11-4"><a href="#2023-11-4" class="headerlink" title="2023&#x2F;11&#x2F;4"></a>2023&#x2F;11&#x2F;4</h1><hr><p>期中阶段，比较忙，赶课堂内容</p><p>wsl用着不错，linux 熟悉了很多</p><p>发现<strong>代码能力太弱</strong>（算法写不出来，开发也两眼抓瞎），准备通过阅读代码和做点项目补上来，还是准备往C++方向走</p><p>英语也不行，练听力，听CSGO比赛的纯净流！</p><h1 id="2023-10-24"><a href="#2023-10-24" class="headerlink" title="2023&#x2F;10&#x2F;24"></a>2023&#x2F;10&#x2F;24</h1><hr><p>这几周摆了很久，复盘了一下自己学过的内容，菜狗了，准备恶补一下</p><p>准备学的一些东西</p><ul><li>接触常用机器学习算法</li><li>docker</li><li>加强 Linux 的使用</li><li>设计模式</li><li>有时间研究一下 Godot 源码</li></ul>]]></content>
     
     
       
@@ -492,32 +519,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;Games101-Rasterization（Antialiasing-and-Z-Buffer）&quot;&gt;&lt;a href=&quot;#Games101-Rasterization（Antialiasing-and-Z-Buffer）&quot; class=&quot;headerlink&quot; t</summary>
-      
-    
-    
-    
-    <category term="图形学" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-    
-    <category term="C++" scheme="http://example.com/tags/C/"/>
-    
-    <category term="Graphics" scheme="http://example.com/tags/Graphics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>glad、glfw配置</title>
-    <link href="http://example.com/2021/03/21/opengl/"/>
-    <id>http://example.com/2021/03/21/opengl/</id>
-    <published>2021-03-21T07:54:16.000Z</published>
-    <updated>2023-09-13T06:32:39.223Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="glad、glfw配置，VS-2019"><a href="#glad、glfw配置，VS-2019" class="headerlink" title="glad、glfw配置，VS 2019"></a>glad、glfw配置，VS 2019</h1><p>原文参考 &gt;&gt; <a href="https://learnopengl.com/Getting-started/Creating-a-window">https://learnopengl.com/Getting-started/Creating-a-window</a></p><p>中文版参考 &gt;&gt; <a href="https://learnopengl-cn.github.io/01%20Getting%20started/02%20Creating%20a%20window/">https://learnopengl-cn.github.io/01%20Getting%20started/02%20Creating%20a%20window/</a></p><h2 id="GLFW"><a href="#GLFW" class="headerlink" title="GLFW"></a>GLFW</h2><p>下载glfw</p><p><a href="https://www.glfw.org/download.html">下载地址</a></p><p>一般解压至项目文件夹</p><p>链接</p><p>解决方案资源管理器 <strong>右键 &gt;&gt; 属性 &gt;&gt; VC++目录</strong></p><ul><li>包含目录 添加 include 文件夹路径</li><li>库目录 添加 lib 文件夹路径</li></ul><p><img src="/iimmgg/2021321-172822.jpg" alt="0"></p><p>链接器</p><p>附加依赖项：手动输入<code>glfw3.lib;opengl32.lib</code></p><p><img src="/iimmgg/2021321-212507.jpg" alt="2021321-212507"></p><p>这时就可以在cpp文件中加入<code>#include &lt;GLFW/glfw3.h&gt;</code></p><h2 id="GLAD"><a href="#GLAD" class="headerlink" title="GLAD"></a>GLAD</h2><p>glad提供在线服务 <a href="https://glad.dav1d.de/">https://glad.dav1d.de/</a></p><ul><li>Language：C&#x2F;C++</li><li>API gl 选择版本大于等于之前 glfw 版本的选项</li><li>Profile 选择 Core</li><li>勾选 Generate a loader</li></ul><p>生成，下载zip文件，获得两个包含头文件的文件夹和一个<code>glad.c</code>文件</p><p>包含头文件的文件夹放入 glfw 的 include 下，glad.c 也放入项目中</p><p><img src="/iimmgg/2021321-213003.jpg" alt="2021321-213003"></p><h2 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;glad/glad.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;GLFW/glfw3.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">framebuffer_size_callback</span><span class="params">(GLFWwindow* window, <span class="type">int</span> width, <span class="type">int</span> height)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">processInput</span><span class="params">(GLFWwindow* window)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">glfwInit</span>();</span><br><span class="line">    <span class="built_in">glfwWindowHint</span>(GLFW_CONTEXT_VERSION_MAJOR, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">glfwWindowHint</span>(GLFW_CONTEXT_VERSION_MINOR, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">glfwWindowHint</span>(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</span><br><span class="line">    <span class="comment">//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);</span></span><br><span class="line"></span><br><span class="line">    GLFWwindow* window = <span class="built_in">glfwCreateWindow</span>(<span class="number">800</span>, <span class="number">600</span>, <span class="string">&quot;LearnOpenGL&quot;</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (window == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Failed to create GLFW window&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        <span class="built_in">glfwTerminate</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">glfwMakeContextCurrent</span>(window);</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">gladLoadGLLoader</span>((GLADloadproc)glfwGetProcAddress))</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Failed to initialize GLAD&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">glfwSetFramebufferSizeCallback</span>(window, framebuffer_size_callback);</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">glfwWindowShouldClose</span>(window))</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">processInput</span>(window);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">glClearColor</span>(<span class="number">0.2f</span>, <span class="number">0.3f</span>, <span class="number">0.3f</span>, <span class="number">1.0f</span>);</span><br><span class="line">        <span class="built_in">glClear</span>(GL_COLOR_BUFFER_BIT);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">glfwSwapBuffers</span>(window);</span><br><span class="line">        <span class="built_in">glfwPollEvents</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">glfwTerminate</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">framebuffer_size_callback</span><span class="params">(GLFWwindow* window, <span class="type">int</span> width, <span class="type">int</span> height)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">glViewport</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">processInput</span><span class="params">(GLFWwindow* window)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">glfwGetKey</span>(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)</span><br><span class="line">        <span class="built_in">glfwSetWindowShouldClose</span>(window, <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>运行成功获得一个如下图窗口，可通过Esc关闭</p><p><img src="/iimmgg/2021321-212635.jpg" alt="2021321-212635"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;glad、glfw配置，VS-2019&quot;&gt;&lt;a href=&quot;#glad、glfw配置，VS-2019&quot; class=&quot;headerlink&quot; title=&quot;glad、glfw配置，VS 2019&quot;&gt;&lt;/a&gt;glad、glfw配置，VS 2019&lt;/h1&gt;&lt;p&gt;原文</summary>
       
     
     
