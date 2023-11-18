@@ -117,9 +117,9 @@
     <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="ML" scheme="http://example.com/tags/ML/"/>
-    
     <category term="Linux" scheme="http://example.com/tags/Linux/"/>
+    
+    <category term="ML" scheme="http://example.com/tags/ML/"/>
     
   </entry>
   
@@ -193,9 +193,9 @@
     
     <category term="pytorch" scheme="http://example.com/tags/pytorch/"/>
     
-    <category term="ML" scheme="http://example.com/tags/ML/"/>
-    
     <category term="CNN" scheme="http://example.com/tags/CNN/"/>
+    
+    <category term="ML" scheme="http://example.com/tags/ML/"/>
     
   </entry>
   
@@ -221,9 +221,9 @@
     
     <category term="pytorch" scheme="http://example.com/tags/pytorch/"/>
     
-    <category term="DNN" scheme="http://example.com/tags/DNN/"/>
-    
     <category term="ML" scheme="http://example.com/tags/ML/"/>
+    
+    <category term="DNN" scheme="http://example.com/tags/DNN/"/>
     
   </entry>
   
