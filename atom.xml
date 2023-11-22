@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-11-18T14:46:51.419Z</updated>
+  <updated>2023-11-21T15:04:07.198Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,21 +17,48 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>games104笔记-更新ing</title>
+    <title>games104-动画</title>
+    <link href="http://example.com/2023/11/21/104-animation/"/>
+    <id>http://example.com/2023/11/21/104-animation/</id>
+    <published>2023-11-21T13:59:15.000Z</published>
+    <updated>2023-11-21T15:04:07.198Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><hr><p><strong>一些挑战</strong></p><ul><li>动作不可预测，如何realtime、如何对适配复杂的环境交互</li><li>表情细节</li><li>不同部位的动作如何融合</li></ul><p><strong>3D动画</strong></p><hr><p><strong>DoF</strong>：Degree of freedom，自由度，刚体6个自由度，三维中的平移和旋转 3+3</p><p>几种实现方式：</p><ul><li>早期刚体动画：方块，连接处不自然</li><li>顶点动画：可模拟布料、流体</li><li>Morph Animation（顶点影响权重，插值）：一般用于面部动作</li><li>Skinned Animation（蒙皮动画）：目前常用</li><li>基于物理：布娃娃Ragdoll、布料、流体、反向动力IK，有定点如何自然运动</li></ul><h3 id="蒙皮动画"><a href="#蒙皮动画" class="headerlink" title="蒙皮动画"></a>蒙皮动画</h3><hr><p>mesh、skeleton（分为Joint、Bone）、刷蒙皮（顶点绑定骨骼）、骨骼动画</p><p>骨骼可以拓展至衣服、外饰、面部，武器（可以插在手部joint，插槽的概念），但最好定义好基础骨骼</p><p>Root joint，一般在模型最底层的中间位置，方便高度等位置表达</p><h3 id="数学基础-旋转"><a href="#数学基础-旋转" class="headerlink" title="数学基础-旋转"></a>数学基础-旋转</h3><hr><p>三维空间中的旋转可以通过<strong>三个轴的旋转</strong>叠加出来，欧拉角，一般用于编辑物体，但是</p><ul><li>当顺序不同时结果可能不同</li><li>难插值</li><li>难用于定轴旋转</li></ul><hr><p><strong>四元数！</strong></p><p>引入，复平面下的角度叠加可以用复数的相乘表示</p><p>群论定义在三维空间下的计算</p><p>定义了三个虚部 i、j、k，Q &#x3D; a+b*i+c*j+d*k</p><p>将旋转优化为直接的矩阵计算</p><iframe src="//player.bilibili.com/player.html?aid=33385105&bvid=BV1SW411y7W1&cid=58437850&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><h3 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h3><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;概览&quot;&gt;&lt;a href=&quot;#概览&quot; class=&quot;headerlink&quot; title=&quot;概览&quot;&gt;&lt;/a&gt;概览&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;一些挑战&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;动作不可预测，如何realtime、如何对适配复杂的环境交互</summary>
+      
+    
+    
+    
+    <category term="游戏引擎" scheme="http://example.com/categories/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/"/>
+    
+    
+    <category term="游戏引擎" scheme="http://example.com/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>games104笔记-开篇和渲染</title>
     <link href="http://example.com/2023/11/18/games104/"/>
     <id>http://example.com/2023/11/18/games104/</id>
     <published>2023-11-18T14:35:39.000Z</published>
-    <updated>2023-11-18T14:46:51.419Z</updated>
+    <updated>2023-11-22T13:13:48.375Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="简化的架构"><a href="#简化的架构" class="headerlink" title="简化的架构"></a>简化的架构</h3><hr><ul><li>Tool Layer：面向用户，DCC和引擎交互</li><li>Function Layer：tick，渲染+逻辑，etc…</li><li>Resource Layer：资源格式转换为资产（更高效的内部数据），GUID资产识别，资产生命周期管理（核心）</li><li>Core Layer：数学库，更高效的数据结构、容器，内存管理</li><li>Platform Layer：RHI（封装不同的图形API，向上提供统一接口）</li></ul><p>Function 和 Core 可能有很多交汇</p><h3 id="game-world"><a href="#game-world" class="headerlink" title="game world"></a>game world</h3><hr><p>各种光源、人物角色、像机乃至空气墙、触发器都可以表示成对象</p><p>各种过于复杂的关系导致继承系统很难表示，引入组件components，可以看一下ECS模式</p><p>component-based Tick，相同组件同时tick，更加高效</p><p>事件系统，消息机制类似进程信箱通信，需要可扩展消息以支持物体间各种交互事件</p><p>场景管理，八叉树、BVH（bounding box）等等</p><p>pretick &amp; posttick，多线程下统一时序</p><h3 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h3><hr>]]></content>
+    <content type="html"><![CDATA[<h3 id="简化的架构"><a href="#简化的架构" class="headerlink" title="简化的架构"></a>简化的架构</h3><hr><ul><li><strong>Tool Layer</strong>：面向用户，DCC和引擎交互</li><li><strong>Function Layer</strong>：tick，渲染+逻辑，etc…</li><li><strong>Resource Layer</strong>：资源格式转换为资产（更高效的内部数据），GUID资产识别，资产生命周期管理（核心）</li><li><strong>Core Layer</strong>：数学库，更高效的数据结构、容器，内存管理</li><li><strong>Platform Layer</strong>：RHI（封装不同的图形API，向上提供统一接口）</li></ul><p>Function 和 Core 可能有很多交汇</p><h3 id="Game-World"><a href="#Game-World" class="headerlink" title="Game World"></a>Game World</h3><hr><p>各种光源、人物角色、像机乃至空气墙、触发器都可以表示成<strong>对象Object</strong></p><p>各种过于复杂的关系导致继承系统很难表示，引入<strong>组件components</strong>，可以看一下ECS模式</p><p><strong>component-based Tick</strong>，相同组件同时tick，更加高效</p><p><strong>事件系统</strong>，消息机制类似进程信箱通信，需要可扩展消息以支持物体间各种交互事件</p><p><strong>场景管理</strong>，八叉树、BVH（bounding box）等等</p><p><strong>pretick &amp; posttick</strong>，多线程下统一时序</p><h3 id="引擎中的渲染"><a href="#引擎中的渲染" class="headerlink" title="引擎中的渲染"></a>引擎中的渲染</h3><hr><p>可结合games101</p><p><strong>一些挑战</strong></p><ul><li>场景中的大量物体需要渲染</li><li>复杂的底层硬件适配</li><li>稳定的帧率</li><li>有限的资源分配</li></ul><p>GPU，SIMT结构，GPU架构</p><p>mash - submash - shader，可以按照材质排序渲染，<strong>实例Instance</strong>概念（定义和渲染概念分离）</p><p><strong>可见性裁剪</strong>，包围盒+场景划分（BVH）</p><p><strong>纹理压缩</strong>，常用压缩算法无法随机访问位置，使用基于Block Compression的常用算法</p><h3 id="光、材质和shader"><a href="#光、材质和shader" class="headerlink" title="光、材质和shader"></a>光、材质和shader</h3><hr><p>再次参考101</p><p><strong>一些挑战</strong></p><ul><li>BRDF如何快速进行积分</li><li>光源本身的复杂性、间接光源的处理</li><li>shadow！</li></ul><p><strong>预计算全局光照（Global IIIumination）</strong>，球面空间如何采样和积分，球谐函数（Spherical Harmonics）！！！</p><p>个人对使用SH函数的理解，不需要采样球上成千上万的点，而且全局光关注的基本是低频信息，直接使用类似傅里叶变换从空域到频域映射加卷积提取其特征即可，球谐基本就是这个作用，可以非常高效的提取亮部和暗部，可以看一下各级球谐函数的图像，阶数越高，能表示的精度越高（亮暗面更多），12个参数（球谐函数4个*RGB3个）即可表示</p><p><strong>SH Lightmap</strong>：烘培很慢但效果很好，基本适用于静态物体</p><p><strong>Light Probe &amp;&amp; Reflect Probe</strong>：低频采样但是可以实时</p><p><strong>PBR</strong>：当前常用的有</p><ul><li><p>Specular Glossiness（SG模型，RGB+菲涅尔+粗糙度，DFG！），菲涅尔项容易炸</p></li><li><p>Metallic Roughness（RGB+粗糙度+金属度），根据金属度设置菲涅尔项，更强的可控性</p></li></ul><p><strong>IBL</strong>：Image-based Lighting，会有多级表示不同的频率</p><p><strong>VSSM</strong>：利用方差、期望等直接求软阴影</p><hr><p><strong>总结-引擎渲染部分实现</strong></p><p>全局光照 -&gt; SH lightmap + Probe</p><p>材质 -&gt; PBR两大模型 + IBL</p><p>阴影 -&gt; VSSM + Cascade</p><h3 id="地形、植被（terrain，vegetation）"><a href="#地形、植被（terrain，vegetation）" class="headerlink" title="地形、植被（terrain，vegetation）"></a>地形、植被（terrain，vegetation）</h3><hr><p><strong>LOD</strong>：level of detail，层次细节</p><p><strong>QuadTree-Based Subdivision</strong>：四叉树地形管理</p><p>地形纹理交界处混合，hack，加bias！</p><p><strong>Virtual texture</strong>：类似mipmap，混合全部材质，有点像OS里的页面置换，存显存里！</p><p>核心思路就是近处细分，远处粗糙</p><h3 id="大气、云（cloud，sky）"><a href="#大气、云（cloud，sky）" class="headerlink" title="大气、云（cloud，sky）"></a>大气、云（cloud，sky）</h3><hr><h3 id="环境光遮蔽AO"><a href="#环境光遮蔽AO" class="headerlink" title="环境光遮蔽AO"></a>环境光遮蔽AO</h3><hr><p>几种实现</p><ul><li>离线预计算，烘培到贴图</li><li>SSAO+，但屏幕空间无法处理不同物体距离</li><li>HBAO，看天顶，多少角度可以越过周围遮挡物，但无法区分不同角度照过来的光</li><li>GTAO，区分了光的角度，无敌</li></ul><h3 id="雾"><a href="#雾" class="headerlink" title="雾"></a>雾</h3><hr><p>几种实现</p><ul><li>深度雾，通过线性函数</li><li>height fog，雾会沉在下面，根据高度展示，积分浓度</li><li>体素雾，类似云渲染</li></ul><h3 id="后处理Post-process"><a href="#后处理Post-process" class="headerlink" title="后处理Post-process"></a>后处理Post-process</h3><hr><p>主要应用</p><ul><li><strong>Bloom效果</strong>：泛光，提取亮部再blur，会对结果缩小再放大，为了得到晕开的效果</li><li><strong>Tone Mapping</strong>：色调映射，很多映射曲线，经典<strong>filmic curve</strong>，目前用的多的是<strong>ACES</strong></li><li><strong>color grading</strong>：调色，又叫LUT，也是一个简单的映射</li></ul><h3 id="渲染管线pipeline"><a href="#渲染管线pipeline" class="headerlink" title="渲染管线pipeline"></a>渲染管线pipeline</h3><hr><p><strong>前向渲染forward rendering</strong></p><p>上面的n种渲染效果，大量算法，按照一定的顺序应用和处理，最终呈现</p><p>有方向性的数据流</p><p><strong>延迟渲染deferred rendering</strong></p><p>随着场景愈来愈复杂光源越来越多，更好的处理光源</p><p>先走一遍管线，把材质、深度、法线等信息全部存到<strong>GBuffer</strong>里，<strong>最后计算光照</strong></p><p>但是GBuffer开销极大</p><p><strong>Tile-based rendering</strong></p><p>目前比较常用，像瓷砖一块一块</p><p>相当于分割成几个小块，可以单独计算GBuffer、光照，大大减少开销</p><p><strong>Cluster-based rendering</strong></p><p>直接对视锥空间切分，四棱柱，tile的升级版本，更大量的光源</p><p><strong>几何buffer和材质buffer分离</strong></p><p>GBuffer、VBuffer分离</p><p>对buffer直接渲染！！！</p><h3 id="各种sync"><a href="#各种sync" class="headerlink" title="各种sync"></a>各种sync</h3><hr><p>保证frame buffer写完再刷，保证显示不会裂开</p>]]></content>
     
     
       
       
     <summary type="html">&lt;h3 id=&quot;简化的架构&quot;&gt;&lt;a href=&quot;#简化的架构&quot; class=&quot;headerlink&quot; title=&quot;简化的架构&quot;&gt;&lt;/a&gt;简化的架构&lt;/h3&gt;&lt;hr&gt;
 &lt;ul&gt;
-&lt;li&gt;Tool Layer：面向用户，DCC和引擎交互&lt;/li&gt;
-&lt;li&gt;Function Laye</summary>
+&lt;li&gt;&lt;strong&gt;Tool Layer&lt;/strong&gt;：面向用户，DCC和引擎交互&lt;/li&gt;
+</summary>
       
     
     
@@ -501,32 +528,6 @@
     
     <category term="图形学" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
-    
-    <category term="Graphics" scheme="http://example.com/tags/Graphics/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Games101-Rasterization(Antialiasing and Z-Buffer）笔记</title>
-    <link href="http://example.com/2021/04/03/Games101-06-Rasterization%EF%BC%88Antialising%EF%BC%89/"/>
-    <id>http://example.com/2021/04/03/Games101-06-Rasterization%EF%BC%88Antialising%EF%BC%89/</id>
-    <published>2021-04-03T15:59:00.000Z</published>
-    <updated>2023-09-12T10:23:35.208Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Games101-Rasterization（Antialiasing-and-Z-Buffer）"><a href="#Games101-Rasterization（Antialiasing-and-Z-Buffer）" class="headerlink" title="Games101-Rasterization（Antialiasing and Z-Buffer）"></a>Games101-Rasterization（Antialiasing and Z-Buffer）</h1><p>课堂收获的知识过多，无法全部记录在笔记中…只简单的记录一下大概</p><h2 id="走样和反走样"><a href="#走样和反走样" class="headerlink" title="走样和反走样"></a>走样和反走样</h2><h3 id="what"><a href="#what" class="headerlink" title="what"></a>what</h3><p>上节课通过判断每个 pixel 是否在三角形内得到的图形会出现很严重的锯齿状边缘，这就是一种走样（Aliasing）</p><p>走样（Aliasing）只有锯齿状一种吗？</p><ul><li>空间方面：摩尔纹，锯齿</li><li>时间方面：车轮效应</li></ul><hr><p>简单来说，产生走样的原因是：信号变化太快（数据量太大），采样跟不上（采集的数据少）</p><p>黑话：Artifact，指采样产生的各种误差和错误</p><h3 id="why"><a href="#why" class="headerlink" title="why"></a>why</h3><p>涉及信号处理和图像处理</p><p>首先提出一种可行方案：先将原图模糊再采样。效果确实比原先好，相当于在外围做了一圈渐变</p><p>两个步骤能调换次序吗？</p><hr><p><strong>基础知识引入</strong></p><p>傅里叶级数展开：任何周期函数，都可以表示成一系列 正弦+余弦+常数 的形式</p><p>傅里叶变换：时域$\rightarrow$频域，用于采样</p><p>逆傅里叶变换：频域$\rightarrow$时域，用于还原</p><hr><p>滤波：将特定频率过滤掉</p><p><strong>分析一张黑白照片</strong></p><p>（频率信息分布图？忘了）中心白色（低频信号），周围黑色（高频信号），有白色十字线（上下左右默认n张图片连续重叠，变化趋缓）</p><p>用高通滤波（High-pass filter）和低通滤波（Low-pass filter）处理图像后，发现高频表示边缘（怎么定义边缘？），低频表示变化平缓的区域</p><p>对于彩色图像则是在 RGB 三个通道上判断</p><hr><p><strong>如何滤波</strong></p><p>Filter &#x3D; Convolution（卷积，直观理解为平均化和模糊处理）</p><p>将某位置信号和周围信号通过一个滤波窗口加权平均</p><p>时域乘积 &#x3D; 频域卷积（还没搞懂）</p><p>box fliter：a n*n low-pass fliter</p><p>box越大越模糊，参与平均的位置越多</p><hr><p>采样</p><p>整个过程是：频谱 $\rightarrow$ 采样 $\rightarrow$ 重复原始信号频谱</p><p>使用冲击函数取样</p><p>如果冲击函数的频率不够，则时间间隔变小，采样复原出的函数每个周期就会出现交叉，产生混叠，从而出现走样</p><h3 id="how"><a href="#how" class="headerlink" title="how"></a>how</h3><p>反走样</p><p>模糊（low-pass）在做什么？ 将函数的交叉部分去掉，得到没有交叉的函数</p><p>然后再采样</p><hr><p><strong>更准确的灰度值（色彩值）</strong></p><p>MSAA（MultiSampling Anti-Aliasing，多重采样抗锯齿） ：当前分辨率成倍提高，然后再把画缩放到当前的显示器上。只是寻找出物体边缘部分的像素，忽略掉了不会产生锯齿的内部像素</p><p>SSAA（SuperSampling Anti-Aliasing，超级采样抗锯齿）：在 1pixel 范围内加入假象的 n*n 个均匀分布定位点，提高覆盖率的准确度，但是计算量是原先的 n<sup>2</sup> 倍</p><p>但实际使用时用了各种优化手段，例如不均匀分布等减少来计算量，所以帧数不会下降太剧烈</p><h3 id="目前-Antialiasing-方法"><a href="#目前-Antialiasing-方法" class="headerlink" title="目前 Antialiasing 方法"></a>目前 Antialiasing 方法</h3><p>工业上：</p><ul><li>FXAA（Fast Approximate Anti-Aliasing，快速近似抗锯齿）：图像层面，先得到有锯齿图像，再在图像上直接处理</li><li>TAA（Temporal Anti-Aliasing，时间性抗锯齿）：运用上一几帧的信息，最常用的图像增强算法之一。</li><li>TXAA（Temporal Multi-Sample Anti-Aliasing）：TAA+MSAA</li><li>DLSS（Deep Learning Super Sampling）：基于深度学习的超采样</li></ul><h2 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h2><p>三角形之间会有遮挡关系</p><p>painter‘s Algorithm：对图像从后往前排序</p><p>但存在图形互相交叠的情况</p><hr><p><strong>z-Buffer（深度缓存）</strong></p><p>对每一个像素排序，记录每一个像素最浅的深度信息</p><p>生成结果最终图像（frame buffer）的同时生成深度图（depth buffer，z-buffer）</p><p>处理流程：记录每个 pixel 的深度，遇到更浅的深度时，画上去同时更新深度图</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*初始 z 值为比任意点要深的值*/</span></span><br><span class="line"><span class="keyword">for</span>(each triangle T)</span><br><span class="line">    <span class="keyword">for</span>(each <span class="built_in">sample</span>(x,y,z) in T)</span><br><span class="line">        <span class="keyword">if</span>(z &lt; zbuffer[x,y])</span><br><span class="line">            framebuffer[x,y] = rgb;<span class="comment">//更新帧缓存</span></span><br><span class="line">            zbuffer[x,y] = z;<span class="comment">//更新深度图</span></span><br><span class="line">            </span><br></pre></td></tr></table></figure><hr><p>复杂度</p><p>O（n）</p><hr><p>zbuffer无法处理透明物体</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Games101-Rasterization（Antialiasing-and-Z-Buffer）&quot;&gt;&lt;a href=&quot;#Games101-Rasterization（Antialiasing-and-Z-Buffer）&quot; class=&quot;headerlink&quot; t</summary>
-      
-    
-    
-    
-    <category term="图形学" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-    
-    <category term="C++" scheme="http://example.com/tags/C/"/>
     
     <category term="Graphics" scheme="http://example.com/tags/Graphics/"/>
     
