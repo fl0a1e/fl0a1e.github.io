@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-11-28T06:05:12.820Z</updated>
+  <updated>2023-12-12T07:35:53.323Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>games104-Lumen</title>
+    <link href="http://example.com/2023/12/11/104-lumen/"/>
+    <id>http://example.com/2023/12/11/104-lumen/</id>
+    <published>2023-12-11T14:09:56.000Z</published>
+    <updated>2023-12-12T07:35:53.323Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="传统功夫"><a href="#传统功夫" class="headerlink" title="传统功夫"></a>传统功夫</h3><hr><p><strong>蒙特卡洛积分Monte Carlo Integration</strong>，基于采样Sampling</p><p>优化：主要对采样的方式进行优化</p><p><strong>RSM</strong>：光子映射</p><p><strong>LPV</strong>：分块，光线在块内碰撞</p><p><strong>SVOGI</strong>：片元变体素</p><p><strong>VXGI</strong>：上面的优化，clipmap存储数据，近处voxel更细远处更粗</p><p><strong>SSGI</strong>：屏幕空间，可用于镜面效果等</p><h3 id="Lumen"><a href="#Lumen" class="headerlink" title="Lumen"></a>Lumen</h3><hr><p>基础：<strong>SDF</strong>，面片sdf，由于连续函数可微，导数就是法线方向，光线步进算法，阴影计算等都可以大大简化，一般分4层lumen，精度按照与摄像机的距离逐渐降低</p><p>核心：在表面附近放置大量probe</p><p>Mesh card：每个物体6个面，采样，各种信息（法线、深度等等）</p><p>surface cache：4096*4096，存储一系列mesh card</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;传统功夫&quot;&gt;&lt;a href=&quot;#传统功夫&quot; class=&quot;headerlink&quot; title=&quot;传统功夫&quot;&gt;&lt;/a&gt;传统功夫&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;蒙特卡洛积分Monte Carlo Integration&lt;/strong&gt;，基于采样Sampli</summary>
+      
+    
+    
+    
+    <category term="游戏引擎" scheme="http://example.com/categories/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/"/>
+    
+    
+    <category term="游戏引擎" scheme="http://example.com/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/"/>
+    
+  </entry>
   
   <entry>
     <title>games104-gameplay和游戏AI</title>
@@ -202,9 +227,9 @@
     <link href="http://example.com/2023/10/24/diary/"/>
     <id>http://example.com/2023/10/24/diary/</id>
     <published>2023-10-24T03:55:05.000Z</published>
-    <updated>2023-11-17T16:08:06.653Z</updated>
+    <updated>2024-01-22T02:48:59.159Z</updated>
     
-    <content type="html"><![CDATA[<p>个人来说，写博客占用学习时间大概是伪命题，因为不写博客可能真的没怎么学习ORZ</p><p>简单写一个学习和日常的记录</p><p>没更新就说明又摸大鱼去了，基本<strong>每周或每两周记录一次</strong>，当周报！</p><h1 id="2023-11-19"><a href="#2023-11-19" class="headerlink" title="2023&#x2F;11&#x2F;19"></a>2023&#x2F;11&#x2F;19</h1><hr><p>期中基本结束，但任务还是比较多，一点点来完成</p><p>这周接触了一下ResNet、GAN、Nerf，基本理解其由来和基本实现原理</p><ul><li>准备看一下 games104，会同步更新到博客，学完可能会去看开源引擎的源码，分析其设计和尝试修改，教程的样例引擎Piccolo终于编译过了，最逆天的一集拿MinGW摁编译MSVC的东西</li><li>C&#x2F;C++ 准备多看看代码，了解新特性、编码的 trick 等</li><li>进一步了解 AI 相关，未来有点想研究强化学习和Nerf</li></ul><h1 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023&#x2F;11&#x2F;11"></a>2023&#x2F;11&#x2F;11</h1><hr><p>这周基本补完<code>git</code>、<code>cmake</code>、<code>docker</code>基础，下一步就是提高coding能力</p><p>同时ai也开始看看，继续巩固研究CNN</p><p>期中！算法导论期中考要寄啦，看不懂一点</p><h1 id="2023-11-4"><a href="#2023-11-4" class="headerlink" title="2023&#x2F;11&#x2F;4"></a>2023&#x2F;11&#x2F;4</h1><hr><p>期中阶段，比较忙，赶课堂内容</p><p>wsl用着不错，linux 熟悉了很多</p><p>发现<strong>代码能力太弱</strong>（算法写不出来，开发也两眼抓瞎），准备通过阅读代码和做点项目补上来，还是准备往C++方向走</p><p>英语也不行，练听力，听CSGO比赛的纯净流！</p><h1 id="2023-10-24"><a href="#2023-10-24" class="headerlink" title="2023&#x2F;10&#x2F;24"></a>2023&#x2F;10&#x2F;24</h1><hr><p>这几周摆了很久，复盘了一下自己学过的内容，菜狗了，准备恶补一下</p><p>准备学的一些东西</p><ul><li>接触常用机器学习算法</li><li>docker</li><li>加强 Linux 的使用</li><li>设计模式</li><li>有时间研究一下 Godot 源码</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>个人来说，写博客占用学习时间大概是伪命题，因为不写博客可能真的没怎么学习ORZ</p><p>简单写一个学习和日常的记录</p><p>没更新就说明又摸大鱼去了，基本<strong>每周或每两周记录一次</strong>，当周报！</p><h1 id="2024-1-22"><a href="#2024-1-22" class="headerlink" title="2024&#x2F;1&#x2F;22"></a>2024&#x2F;1&#x2F;22</h1><hr><p>期末大摆！直到寒假！一些要做的</p><ul><li>学习一下腾讯的远程课题，ue5一点不会</li><li>调研小论文方向的一些最新内容</li><li>养生了，直接开睡</li></ul><h1 id="2023-12-17"><a href="#2023-12-17" class="headerlink" title="2023&#x2F;12&#x2F;17"></a>2023&#x2F;12&#x2F;17</h1><hr><p>试了用RNN网络做图像分类实验，图像的处理太抽象了调了快一天，最后全靠GPT的帮助才把图像数据成功输入到网络里</p><p>下周估计很忙，很多实验课节课，还要准备知识点</p><h1 id="2023-11-19"><a href="#2023-11-19" class="headerlink" title="2023&#x2F;11&#x2F;19"></a>2023&#x2F;11&#x2F;19</h1><hr><p>期中基本结束，但任务还是比较多，一点点来完成</p><p>这周接触了一下ResNet、GAN、Nerf，基本理解其由来和基本实现原理</p><ul><li>准备看一下 games104，会同步更新到博客，学完可能会去看开源引擎的源码，分析其设计和尝试修改，教程的样例引擎Piccolo终于编译过了，最逆天的一集拿MinGW摁编译MSVC的东西</li><li>C&#x2F;C++ 准备多看看代码，了解新特性、编码的 trick 等</li><li>进一步了解 AI 相关，未来有点想研究强化学习和Nerf</li></ul><h1 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023&#x2F;11&#x2F;11"></a>2023&#x2F;11&#x2F;11</h1><hr><p>这周基本补完<code>git</code>、<code>cmake</code>、<code>docker</code>基础，下一步就是提高coding能力</p><p>同时ai也开始看看，继续巩固研究CNN</p><p>期中！算法导论期中考要寄啦，看不懂一点</p><h1 id="2023-11-4"><a href="#2023-11-4" class="headerlink" title="2023&#x2F;11&#x2F;4"></a>2023&#x2F;11&#x2F;4</h1><hr><p>期中阶段，比较忙，赶课堂内容</p><p>wsl用着不错，linux 熟悉了很多</p><p>发现<strong>代码能力太弱</strong>（算法写不出来，开发也两眼抓瞎），准备通过阅读代码和做点项目补上来，还是准备往C++方向走</p><p>英语也不行，练听力，听CSGO比赛的纯净流！</p><h1 id="2023-10-24"><a href="#2023-10-24" class="headerlink" title="2023&#x2F;10&#x2F;24"></a>2023&#x2F;10&#x2F;24</h1><hr><p>这几周摆了很久，复盘了一下自己学过的内容，菜狗了，准备恶补一下</p><p>准备学的一些东西</p><ul><li>接触常用机器学习算法</li><li>docker</li><li>加强 Linux 的使用</li><li>设计模式</li><li>有时间研究一下 Godot 源码</li></ul>]]></content>
     
     
       
@@ -212,7 +237,7 @@
     <summary type="html">&lt;p&gt;个人来说，写博客占用学习时间大概是伪命题，因为不写博客可能真的没怎么学习ORZ&lt;/p&gt;
 &lt;p&gt;简单写一个学习和日常的记录&lt;/p&gt;
 &lt;p&gt;没更新就说明又摸大鱼去了，基本&lt;strong&gt;每周或每两周记录一次&lt;/strong&gt;，当周报！&lt;/p&gt;
-&lt;h1 id=&quot;2023-11-1</summary>
+&lt;h1 id=&quot;2024-1-22</summary>
       
     
     
@@ -503,31 +528,6 @@
     <category term="图形学" scheme="http://example.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
     <category term="Unity" scheme="http://example.com/tags/Unity/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MVP变换详解</title>
-    <link href="http://example.com/2021/07/08/MVP/"/>
-    <id>http://example.com/2021/07/08/MVP/</id>
-    <published>2021-07-08T14:21:53.000Z</published>
-    <updated>2023-09-13T06:15:18.329Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="MVP变换详解"><a href="#MVP变换详解" class="headerlink" title="MVP变换详解"></a>MVP变换详解</h1><p>之前学习中对这部分的理解不深，简单补了一遍线代，就又温习了一遍 MVP 变换</p><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>MVP 变换简单来说就是将我们已经构建好的各种3维模型映射到屏幕这个2维坐标中， 参与 MVP 变换的信息包括点、矢量、法线、切线等</p><p>模型变换（Model）：将模型空间转换到世界空间</p><p>观察变换（View）：将世界空间转换到观察空间</p><p>投影变换（Projection）：将观察空间转换到裁剪空间</p><p>最后要获取屏幕坐标还需要一步：屏幕映射，又叫视口变换</p><p>屏幕映射：获取对应屏幕的 2D 坐标</p><p>《Shader 入门精要》的配图：<img src="/iimmgg/vertex_conversion.png" alt="vertex_conversion"  /></p><h2 id="模型变换-Model"><a href="#模型变换-Model" class="headerlink" title="模型变换(Model)"></a>模型变换(Model)</h2><p>本质就是旋转，平移，缩放（见本文最后）</p><p>模型自身会携带模型坐标的原点信息等，再结合世界坐标还是很好变换的</p><h2 id="观察变换-View"><a href="#观察变换-View" class="headerlink" title="观察变换(View)"></a>观察变换(View)</h2><p>在我的理解下，<code>M</code> 和 <code>V</code> 变换本质上是同一种类型的变换</p><p>比较快速的方法是把整个摄像机坐标空间移动到世界坐标使二者重合再反转 z 轴（不是真的移动摄像机），即在物体与摄像机相对位置不变的情况下让摄像机位于（0，0，0），将变换摄像机的矩阵作用于物体上就可得到观察空间中的坐标</p><p>ps：模型变换也能这么想</p><h2 id="投影-Projection"><a href="#投影-Projection" class="headerlink" title="投影(Projection)"></a>投影(Projection)</h2><p>投影要为裁剪做准备</p><p>视野是有限的，所以在视野外（视锥外）的东西是不需要显示的，而用六个裁剪平面（视锥的六个面）直接判断相对复杂，所以需要投影操作将视锥变成裁剪空间，再通过齐次除法，将裁剪空间变成CVV(Canonical View Volume)，OpenGL中CVV就是一个$[-1,1]^3$的正方体（下面讨论这种），DirectX中的 z 分量稍微不同是$[0,1]$，此时的坐标就是 NDC(Normalized Device Coordinates，归一化设备坐标)</p><p>不考虑 z 轴的情况下，投影是将所有点投影到近裁剪平面上（个人认为可以理解为摄像机拍到的画面，一张特殊的二维相片），然后放缩到$[-1,1]^2$的正方形平面</p><p>而 z 坐标，同样的放缩，但是还需要平移，因为旋向性改变了，z轴变正了（距离越远，z值越大）</p><p>所以投影阶段就已经将<code>x,y</code>坐标和<code>z</code>坐标（深度信息）割裂开来了，所谓的 CVV 可能是之前导致我困惑的一点，先分开分析再合并对我来说更好理解一些</p><h3 id="正交投影"><a href="#正交投影" class="headerlink" title="正交投影"></a>正交投影</h3><p><img src="/iimmgg/gl_projectionmatrix02.png" alt="gl_projectionmatrix02"></p><p>如上图，正交投影的“视锥”是一个长方体，可以通过六个参数定义 <code>right,left,top,bottom,near,far</code>分别对应了x,y,z轴上的范围（<strong>n和f是距离</strong>），从而构成一个长方体</p><p>正交投影的裁剪空间和齐次除法后的CVV是同一个东西就混着讲了</p><p>正交投影的XoY坐标不需要变化直接投射到近平面，然后缩放至$[-1,1]^2$<br>$$<br>M_{ortho}结构<br>\left[<br>\begin{matrix}<br>a&amp;0&amp;0&amp;0\<br>0&amp;b&amp;0&amp;0\<br>0&amp;0&amp;c&amp;d\<br>0&amp;0&amp;0&amp;1<br>\end{matrix}<br>\right]<br>$$<br>x,y是简单的放缩<br>$$<br>a·x&#x3D;\frac{x}{\frac{r-l}{2}}<br>$$</p><p>$$<br>a&#x3D;\frac{2}{r-l}<br>$$<br>y同理</p><p>$$<br>z考虑z_0&#x3D;-n,z_{normalized}&#x3D;-1<br>$$</p><p>$$<br>z_0&#x3D;-f,z_{normalized}&#x3D;1<br>$$</p><p>$$<br>\left{<br>    \begin{aligned}<br>        (-n)c+d&#x3D;-1\<br>        (-f)c+d&#x3D;1<br>    \end{aligned}<br>\right.<br>$$</p><p>$$<br>解得c&#x3D;-\frac{2}{f-n}<br>$$</p><h2 id="d-frac-f-n-f-n"><a href="#d-frac-f-n-f-n" class="headerlink" title="$$d&#x3D;-\frac{f+n}{f-n}$$"></a>$$<br>d&#x3D;-\frac{f+n}{f-n}<br>$$</h2><p>$$<br>M_{ortho}&#x3D;\left[\begin{matrix}\frac{2}{r-l}&amp;0&amp;0&amp;0\\0&amp;\frac{2}{t-b}&amp;0&amp;0\\0&amp;0&amp;-\frac{2}{f-n}&amp;-\frac{f+n}{f-n}\\0&amp;0&amp;0&amp;1 \end{matrix}\right]<br>$$</p><h3 id="透视投影"><a href="#透视投影" class="headerlink" title="透视投影"></a>透视投影</h3><img src="/iimmgg/gl_projectionmatrix01.png" alt="gl_projectionmatrix01"  /><p>相对于正交投影，透视投影只是多了一条规则：近大远小，即 z 坐标越靠近近裁剪平面投影过来的 x,y 坐标受到的压缩更小</p><p>透视投影的视锥由4个参数定义，<code>near,far,FOV,Aspect</code>（FOV 有 FOVx 和 FOVy 之分，Aspect是宽高比 w:h）</p><p>对于 XOZ 和 YOZ 平面来说，如下图</p><p><img src="/iimmgg/gl_projectionmatrix03.png" alt="gl_projectionmatrix03" style="zoom: 50%;" /><img src="/iimmgg/gl_projectionmatrix04.png" alt="gl_projectionmatrix04" style="zoom: 50%;" /></p><p>从上图可知，对于 xy 坐标只需要放缩，同时 z 坐标全变为 -n，与xy也没有关系</p><p>所以矩阵结构大致如下<br>$$<br>M_{persp}&#x3D;\left[\begin{matrix}a&amp;0&amp;0&amp;0\0&amp;b&amp;0&amp;0\0&amp;0&amp;c&amp;d\e&amp;h&amp;g&amp;i\ \end{matrix}\right]<br>$$<br>投影完我们需要将把xy坐标压缩到$[-1,1]^2$范围内<br>$$<br>M_{persp}(x_e,y_e,z_e,1)&#x3D;(x’,y’,z_e’,1)<br>$$</p><p>$$<br>近平面width&#x3D;2·near·tan\frac{FOV_x}{2}<br>$$</p><p>$$<br>近平面height&#x3D;\frac{weight}{Aspect}&#x3D;2·near·tan\frac{FOV_x}{2}·\frac{1}{Aspect}<br>$$<br>变换后的坐标<br>$$<br>x’&#x3D;\frac{-nx_e}{z_e·n·tan\frac{FOV_x}{2}}&#x3D;-\frac{x_e}{z_e·tan\frac{FOV_x}{2}}<br>$$</p><p>$$<br>同理y’&#x3D;-\frac{y_e·Aspect}{z_e·tan\frac{FOV_x}{2}}<br>$$<br>但是由于 xy 的变换涉及到 $z_e$ 很难构建矩阵，所以利用齐次坐标赋予第4个变量其他意义</p><p>用数学表示就是让结果同时乘$-z_e$</p><p>$-z_e(x’,y’,z’,1)&#x3D;(-z_ex’,-z_ey’,-z_ez’,-z_e)$</p><p>明显可得<br>$$<br>a&#x3D;\frac{1}{\tan\frac{FOV_x}{2}}&#x3D;\cot\frac{FOV_x}{2}<br>$$</p><p>$$<br>b&#x3D;\frac{Aspect}{\tan\frac{FOV_x}{2}}&#x3D;Aspect·\cot\frac{FOV_x}{2}<br>$$</p><p>$$<br>e&#x3D;0 , h&#x3D;0 , i&#x3D;0 , g&#x3D;-1<br>$$<br>z轴的矩阵参数分析方法和正交一样<br>$$<br>\left{<br>\begin{aligned}<br>z_e&#x3D;-n,z’&#x3D;-1,-z_ez’&#x3D;z_e&#x3D;-n\<br>z_e&#x3D;-f,z’&#x3D;1,-z_ez’&#x3D;-z_e&#x3D;f<br>\end{aligned}<br>\right.<br>$$</p><p>$$<br>\left{<br>\begin{aligned}<br>(-n)c+d&#x3D;-n\<br>(-f)c+d&#x3D;f<br>\end{aligned}<br>\right.<br>$$</p><p>$$<br>解得<br>\left{<br>\begin{aligned}<br>c&#x3D;-\frac{f+n}{f-n}\<br>d&#x3D;-\frac{2nf}{f-n}<br>\end{aligned}<br>\right.<br>$$</p><hr><p>$$<br>M_{persp}&#x3D;\left[\begin{matrix}\cot\frac{FOV_x}{2}&amp;0&amp;0&amp;0\0&amp;Aspect·\cot\frac{FOV_x}{2}&amp;0&amp;0\0&amp;0&amp;-\frac{f+n}{f-n}&amp;-\frac{2nf}{f-n}\0&amp;0&amp;-1&amp;0\end{matrix}\right]<br>$$</p><p>$$<br>M_{persp}&#x3D;\left[\begin{matrix}\frac{\cot\frac{FOV_y}{2}}{Aspect}&amp;0&amp;0&amp;0\0&amp;\cot\frac{FOV_y}{2}&amp;0&amp;0\0&amp;0&amp;-\frac{f+n}{f-n}&amp;-\frac{2nf}{f-n}\0&amp;0&amp;-1&amp;0\end{matrix}\right]<br>$$<br>负号有无看<code>f-n</code>还是<code>n-f</code>，再强调一遍 n 和 f 是距离</p><p>从推导中可以看出，<strong>透视投影后的空间仍然是在一个锥体中</strong>(每个图元各自乘自己的 z 坐标)，这个空间是裁剪空间，所以可以认为先推导出 CVV 的公式再获得裁剪空间的变换矩阵<br>$$<br>裁剪空间的图元满足以下不等式，就保留<br>$$</p><p>$$<br>-z_e\leq x\leq z_e<br>$$</p><p>$$<br>-z_e\leq y\leq z_e<br>$$</p><p>$$<br>-z_e\leq z\leq z_e<br>$$</p><h2 id="屏幕映射"><a href="#屏幕映射" class="headerlink" title="屏幕映射"></a>屏幕映射</h2><p>这一步就要获取图元在屏幕上对应的像素坐标了</p><p>正交投影直接获得了 CVV（准确来说是裁剪空间和CVV一样，齐次除法后空间不变），而透视投影需要通过<strong>齐次除法</strong>（透视除法）来获得 CVV</p><p>明白透视投影矩阵的推导过程就很容易理解，透视投影的裁剪空间和 CVV 就差了一个乘除操作$-z_e$，而裁剪空间图元的第四个数就是$-z_e$，所以把裁剪空间图元的 xyz 除以第 4 个数就可获得其在 CVV 中的坐标了</p><hr><p>获得 CVV 后，z 坐标只用来判断深度大小，关注xy就行<br>$$<br>获取屏幕坐标矩阵&#x3D;\left[\begin{matrix}\frac{width}{2}&amp;0&amp;0&amp;\frac{width}{2}\0&amp;\frac{height}{2}&amp;0&amp;\frac{height}{2}\0&amp;0&amp;1&amp;0\0&amp;0&amp;0&amp;1\end{matrix}\right]<br>$$</p><h2 id="旋转，平移，缩放"><a href="#旋转，平移，缩放" class="headerlink" title="旋转，平移，缩放"></a>旋转，平移，缩放</h2><p>这部分的数学推导相对简单就不再赘述</p><p>左上 $3*3$ 的矩阵用于旋转和缩放，最后一列用于平移</p><h3 id="平移"><a href="#平移" class="headerlink" title="平移"></a>平移</h3><p>由于平移不是线性变换，所以采用齐次坐标（齐次坐标就是将一个原本是n维的向量用一个n+1维向量来表示，是指一个用于投影几何里的坐标系统）<br>$$<br>点的移动\left[\begin{matrix}1&amp;0&amp;0&amp;t_x\0&amp;1&amp;0&amp;t_y\0&amp;0&amp;1&amp;t_z\0&amp;0&amp;0&amp;1\ \end{matrix}\right] · \left[\begin{matrix}x \y\z\1 \end{matrix}\right]&#x3D;\left[\begin{matrix}x+t_x\y+t_y\z+t_z\1\ \end{matrix}\right]<br>$$</p><p>$$<br>矢量移动\left[\begin{matrix}1&amp;0&amp;0&amp;t_x\0&amp;1&amp;0&amp;t_y\0&amp;0&amp;1&amp;t_z\0&amp;0&amp;0&amp;1\ \end{matrix}\right] · \left[\begin{matrix}x \y\z\0 \end{matrix}\right]&#x3D;\left[\begin{matrix}x\y\z\0\ \end{matrix}\right]<br>$$</p><h3 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h3><p>$$<br>绕 x 轴： \left[\begin{matrix}1&amp;0&amp;0&amp;0\0&amp;cosθ&amp;-sinθ&amp;0\0&amp;sinθ&amp;cosθ&amp;0\0&amp;0&amp;0&amp;1\ \end{matrix}\right]<br>$$</p><p>$$<br>绕 y 轴：\left[\begin{matrix}cosθ&amp;0&amp;sinθ&amp;0\0&amp;1&amp;0&amp;0\-sinθ&amp;0&amp;cosθ&amp;0\0&amp;0&amp;0&amp;1\ \end{matrix}\right]<br>$$</p><p>$$<br>绕 z 轴：\left[\begin{matrix}cosθ&amp;-sinθ&amp;0&amp;0\sinθ&amp;cosθ&amp;0&amp;0\0&amp;0&amp;1&amp;0\0&amp;0&amp;0&amp;1\ \end{matrix}\right]<br>$$</p><h3 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h3><p>$$<br>\left[\begin{matrix}k_x&amp;0&amp;0&amp;0\0&amp;k_y&amp;0&amp;0\0&amp;0&amp;k_z&amp;0\0&amp;0&amp;0&amp;1\ \end{matrix}\right]<br>$$</p><p>$k_x&#x3D;k_y&#x3D;k_z$时为统一缩放</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;MVP变换详解&quot;&gt;&lt;a href=&quot;#MVP变换详解&quot; class=&quot;headerlink&quot; title=&quot;MVP变换详解&quot;&gt;&lt;/a&gt;MVP变换详解&lt;/h1&gt;&lt;p&gt;之前学习中对这部分的理解不深，简单补了一遍线代，就又温习了一遍 MVP 变换&lt;/p&gt;
-&lt;h2 id=</summary>
-      
-    
-    
-    
-    <category term="图形学" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-    
-    <category term="图形学" scheme="http://example.com/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
   </entry>
   
