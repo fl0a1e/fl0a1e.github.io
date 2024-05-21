@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-25T07:37:38.436Z</updated>
+  <updated>2024-05-21T14:19:25.280Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>3dgs</title>
+    <link href="http://example.com/2024/05/21/3dgs/"/>
+    <id>http://example.com/2024/05/21/3dgs/</id>
+    <published>2024-05-21T14:13:50.000Z</published>
+    <updated>2024-05-21T14:19:25.280Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="3D-Gaussian-Splatting-for-Real-Time-Radiance-Field-Rendering"><a href="#3D-Gaussian-Splatting-for-Real-Time-Radiance-Field-Rendering" class="headerlink" title="3D Gaussian Splatting for Real-Time Radiance Field Rendering"></a>3D Gaussian Splatting for Real-Time Radiance Field Rendering</h1><p><a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/</a></p><h1 id="施工ing"><a href="#施工ing" class="headerlink" title="施工ing"></a>施工ing</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;3D-Gaussian-Splatting-for-Real-Time-Radiance-Field-Rendering&quot;&gt;&lt;a href=&quot;#3D-Gaussian-Splatting-for-Real-Time-Radiance-Field-Rendering</summary>
+      
+    
+    
+    
+    <category term="CV" scheme="http://example.com/categories/CV/"/>
+    
+    
+    <category term="3DGS" scheme="http://example.com/tags/3DGS/"/>
+    
+    <category term="可微渲染" scheme="http://example.com/tags/%E5%8F%AF%E5%BE%AE%E6%B8%B2%E6%9F%93/"/>
+    
+  </entry>
   
   <entry>
     <title>mobildnerf</title>
@@ -510,30 +536,6 @@
     
     
     <category term="C++" scheme="http://example.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Gamma校正详解</title>
-    <link href="http://example.com/2021/08/23/Gamma%E6%A0%A1%E6%AD%A3%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://example.com/2021/08/23/Gamma%E6%A0%A1%E6%AD%A3%E8%AF%A6%E8%A7%A3/</id>
-    <published>2021-08-23T09:16:00.000Z</published>
-    <updated>2023-09-13T06:01:36.617Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Gamma校正详解"><a href="#Gamma校正详解" class="headerlink" title="Gamma校正详解"></a>Gamma校正详解</h1><p><a href="https://www.cambridgeincolour.com/tutorials/gamma-correction.htm">参考阅读</a></p><p><a href="https://learnopengl.com/Advanced-Lighting/Gamma-Correction">LearnOpenGL</a></p><p>首先，物理上灰度的变化是平滑的，两倍的光子就产生两倍的灰度变化，是线性的，但是在人眼中就不同了，人眼对暗部更加敏感，是非线性的</p><p>打个比方就是<strong>在暗处 <strong>0.5 倍的物理光子变化，在人眼中可能变化了 2-3 倍，而</strong>在亮处</strong>，要让人感到 2 倍的亮度变化，光子可能需要增加 3-4 倍</p><p><img src="/iimmgg/gamma_correction_brightness.png" alt="gamma_correction_brightness"></p><p>如上图，线性空间（物理空间）中的 0.2 在人看来就是美术意义上的中灰</p><p><img src="/iimmgg/gamma_correction_gamma_curves.png" alt="gamma_correction_gamma_curves"></p><h2 id="简易的一个例子"><a href="#简易的一个例子" class="headerlink" title="简易的一个例子"></a>简易的一个例子</h2><p>假设自然界中一个 0.218 的灰度，在人眼中就是 0.5</p><p>用相机等光学元件记录时，记录的就是 0.218（大多数数码相机以线性方式记录光线）</p><p>经过 gamma 校正（gamma 编码），0.218 通过传递函数以 0.5 存储在硬盘中（这一步在现实中，由绘图软件本身做了，存储在 jpg 等格式的文件中）</p><p>显示时经 gamma2.2 压暗，以 0.218 的光显示，人眼中就是 0.5，和最开始直接观察一致</p><hr><ul><li>如果<strong>不校正</strong>直接存储在硬盘中，经过 gamma2.2 的压暗输出 0.035，人眼中就是 0.218，结果我们<strong>直接看到了线性空间</strong>，就是图一的第二行，导致图片的视觉效果非常亮，而且在人眼中的黑到灰被压缩到了 0.0-0.2，图片的暗部没有细节，而且从黑到白的过度非常生硬有跳跃感，下面是在 unity 中做的效果</li></ul><p><img src="/iimmgg/QQ图片20210822140930.png" alt="QQ图片20210822140930" style="zoom: 67%;" /><img src="/iimmgg/QQ图片20210822140945.png" alt="QQ图片20210822140945" style="zoom: 67%;" />  </p><p>左图Gamma校正，右图无Gamma校正，灰色过度几乎没了，由于只是简单的光照模型没用贴图，所以不能直观感受暗部的细节缺失</p><hr><h2 id="sRGB-贴图过曝问题"><a href="#sRGB-贴图过曝问题" class="headerlink" title="sRGB 贴图过曝问题"></a>sRGB 贴图过曝问题</h2><p>sRGB空间 在内存中就是 <code>1/2.2</code>的伽马编码，非线性的编码</p><p>当我们在渲染器中使用gamma校正后，就是对原图又进行了一次亮度提升，特别明显的是超出 1.0 的部分被截断在 1 导致大量的纯白</p><p>另一个就是混合操作时，直接拿非线性编码混合就出问题了，需要<strong>转换到线性空间下再参与计算</strong></p><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> gamma = <span class="number">2.2</span>;</span><br><span class="line"><span class="type">vec3</span> linearColor = <span class="built_in">pow</span>(<span class="built_in">texture</span>(texture0, Texcoords).rgb, <span class="type">vec3</span>(gamma));</span><br></pre></td></tr></table></figure><hr><p>并非所有纹理实际上都在 sRGB 空间中。用于为对象着色的纹理（如漫反射纹理）几乎总是在 sRGB 空间中。用于检索光照参数的纹理（如镜面反射贴图和法线贴图）几乎总是在线性空间中</p><hr><h2 id="光照衰减"><a href="#光照衰减" class="headerlink" title="光照衰减"></a>光照衰减</h2><p>由于 gamma 校正的影响</p><p>一句话总结：线性空间用线性，伽马空间用物理方程</p><p>线性空间中用经验方程<br>$$<br>线性空间中的变化\frac{1}{D}<br>$$</p><p>$$<br>经过显示gamma后，显示亮度为\left(\frac{1}{D}\right)^{2.2}&#x3D;\frac{1}{D^{2.2}}，差不多2次幂<br>$$</p><hr><h2 id="unity对sRGB图像的处理"><a href="#unity对sRGB图像的处理" class="headerlink" title="unity对sRGB图像的处理"></a>unity对sRGB图像的处理</h2><p>贴图选项勾选 sRGB 在采样时就将伽马空间中的数值转到线性空间中了（重校），经过着色器操作，最后输出到屏幕之前通过 sRGB Frame Buffer 进行 gamma 校正以平衡显示器的显示gamma</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Gamma校正详解&quot;&gt;&lt;a href=&quot;#Gamma校正详解&quot; class=&quot;headerlink&quot; title=&quot;Gamma校正详解&quot;&gt;&lt;/a&gt;Gamma校正详解&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.cambridgeincolour.com</summary>
-      
-    
-    
-    
-    <category term="图形学" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-    
-    <category term="Graphics" scheme="http://example.com/tags/Graphics/"/>
     
   </entry>
   
